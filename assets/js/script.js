@@ -40,76 +40,81 @@ document.addEventListener('DOMContentLoaded', function () {
 window.addEventListener('load', function() { document.body.classList.remove('hidden'); });
 
 // LazyLoad img/iframe/video
-$(document).ready(function () {
-    $('img[src]').each(function () {
-        var $img = $(this);
-        var src = $img.attr('src');
-        $img.attr('data-lazy-src', src);
-        $img.attr('loading', 'lazy');
-        $img.removeAttr('src');
-        $img.addClass('lazyload');
-    });
+// LazyLoad img/iframe/video
+// $(document).ready(function () {
+//     $('img[src]').each(function () {
+//         var $img = $(this);
+//         var src = $img.attr('src');
+//         $img.attr('data-src', src);
+//         $img.removeAttr('src');
+//         $img.addClass('lazyload');
+//     });
 
-    var lazyLoadInstance = new LazyLoad({
-        elements_selector: 'img[data-lazy-src], .pre-lazyload, [data-pre-lazyload], video[data-lazy-src]',
-        data_src: "lazy-src",
-        data_srcset: "lazy-srcset",
-        data_sizes: "lazy-sizes",
-        skip_invisible: false,
-        class_loading: "lazyloading",
-        class_loaded: "lazyloaded"
-    });
+//     var lazyLoadInstance = new LazyLoad({
+//         elements_selector: 'img[data-src], .pre-lazyload, [data-pre-lazyload], video[lazy-src]',
+//         data_src: "src",
+//         data_srcset: "lazy-srcset",
+//         data_sizes: "lazy-sizes",
+//         skip_invisible: false,
+//         class_loading: "lazyloading",
+//         class_loaded: "lazyloaded"
+//     });
 
-    window.addEventListener('LazyLoad::Initialized', function (e) {
-    }, false);
+//     window.addEventListener('LazyLoad::Initialized', function (e) {
+//     }, false);
 
-    $(document).on("init", ".slick-slider", function (e, slick) {
-        lazyLoadInstance.loadAll(slick.$slider[0].getElementsByTagName('img'));
-    });
+//     $(document).on("init", ".slick-slider", function (e, slick) {
+//         lazyLoadInstance.loadAll(slick.$slider[0].getElementsByTagName('img'));
+//     });
 
-    // Init parallax
-    if (typeof $.fn.jarallax !== 'undefined') {
-        $('.jarallax').jarallax({
-            speed: 0.5
-        });
+//     // Init parallax
+//     if (typeof $.fn.jarallax !== 'undefined') {
+//         $('.jarallax').jarallax({
+//             speed: 0.5
+//         });
 
-        $('.jarallax-inline').jarallax({
-            speed: 0.5,
-            keepImg: true,
-            onInit: function () {
-                lazyLoadInstance.update();
-            }
-        });
-    }
+//         $('.jarallax-inline').jarallax({
+//             speed: 0.5,
+//             keepImg: true,
+//             onInit: function () {
+//                 lazyLoadInstance.update();
+//             }
+//         });
+//     }
 
-    $(document).on('updated_wc_div', function () {
-        lazyLoadInstance.loadAll();
-    });
-});
+//     $(document).on('updated_wc_div', function () {
+//         lazyLoadInstance.loadAll();
+//     });
+// });
 
-document.addEventListener("DOMContentLoaded", function () {
-    let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
+// document.addEventListener("DOMContentLoaded", function () {
+//     let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
 
-    if ("IntersectionObserver" in window) {
-        let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-            entries.forEach(function (entry) {
-                if (entry.isIntersecting) {
-                    let lazyImage = entry.target;
-                    lazyImage.src = lazyImage.dataset.src;
-                    lazyImage.classList.remove("lazy");
-                    lazyImageObserver.unobserve(lazyImage);
-                }
-            });
-        });
+//     if ("IntersectionObserver" in window) {
+//         let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
+//             entries.forEach(function (entry) {
+//                 if (entry.isIntersecting) {
+//                     let lazyImage = entry.target;
+//                     lazyImage.src = lazyImage.dataset.src;
+//                     lazyImage.classList.remove("lazy");
+//                     lazyImageObserver.unobserve(lazyImage);
+//                 }
+//             });
+//         });
 
-        lazyImages.forEach(function (lazyImage) {
-            lazyImageObserver.observe(lazyImage);
-        });
-    } else {
-        lazyImages.forEach(function (lazyImage) {
-            lazyImage.src = lazyImage.dataset.src;
-        });
-    }
+//         lazyImages.forEach(function (lazyImage) {
+//             lazyImageObserver.observe(lazyImage);
+//         });
+//     } else {
+//         lazyImages.forEach(function (lazyImage) {
+//             lazyImage.src = lazyImage.dataset.src;
+//         });
+//     }
+// });
+
+var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazyload"
+    // можно добавить другие настройки при необходимости
 });
 
 // Fancybox
