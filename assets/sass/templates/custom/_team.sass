@@ -1,0 +1,25 @@
+.team
+    padding: rem-calc(96 0 128)
+    .grid-x
+        row-gap: rem-calc(40)
+    &__wrap
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: rem-calc(52 20)
+        margin-top: rem-calc(12)
+        @include respond(medium)
+            justify-items: center
+        @include respond(small)
+            grid-template-columns: auto
+            grid-gap: rem-calc(30 20)
+    &__avatar
+        max-width: rem-calc(280)
+        width: 100%
+    &__info
+        >h3
+            color: $color-5
+        >p
+            color: $color-4
+    &__btn
+        margin-top: rem-calc(30)
+        margin-left: rem-calc(6)
