@@ -1,0 +1,28 @@
+.clients
+    padding: rem-calc(82 0 80)
+    background-color: $color-5
+    .grid-x
+        row-gap: rem-calc(40)
+    &__logos
+        display: grid
+        grid-template-columns: 20.5rem 15rem
+        grid-gap: rem-calc(75 20)
+        padding-left: rem-calc(34)
+        margin-top: rem-calc(17)
+        @include respond(medium)
+            padding-left: unset
+            justify-items: center 
+            grid-template-columns: 1fr 1fr
+        &-logo
+            display: flex
+            justify-content: center
+            align-items: center
+            height: rem-calc(78)
+            max-width: rem-calc(128)
+    &__cell
+        display: flex
+        align-items: center
+    &__info
+        max-width: rem-calc(451)
+        @include respond(medium)
+            max-width: 100%
