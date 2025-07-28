@@ -136,11 +136,11 @@ $(document).ready(function() {
 });
 
 // Parallax/jarallax effect
-jarallax(document.querySelectorAll('.jarallax'), {
-    speed: .5,
-    imgSize: 'cover',
-    imgPosition: 'center',
-});
+// jarallax(document.querySelectorAll('.jarallax'), {
+//     speed: .5,
+//     imgSize: 'cover',
+//     imgPosition: 'center',
+// });
 
 // Home slider
 $(document).ready(function () {
