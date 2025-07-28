@@ -87,17 +87,25 @@
                             <div class="home-slider__wrap">
                                 <div class="home-slider__img">
                                     <picture>
-                                        <source srcset="assets/images/webp/Slider-1.webp" type="image/webp">
+                                        <source 
+                                            data-srcset="
+                                            assets/images/webp/Slider-1-412.webp 412w,
+                                            assets/images/webp/Slider-1.webp 720w
+                                            "
+                                            sizes="(max-width: 480px) 320px, (max-width: 768px) 412px, 720px"
+                                            type="image/webp"
+                                        >
                                         <img
                                             src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
                                             data-src="assets/images/Slider-1.jpg"
+                                            data-srcset="assets/images/Slider-1.jpg 720w"
+                                            data-sizes="(max-width: 480px) 320px, (max-width: 768px) 412px, 720px"
                                             class="lazyload"
                                             alt="Slider-1"
-                                            sizes="(max-width: 600px) 412px, 720px"
                                             decoding="async"
                                             fetchpriority="high"
                                         >
-                                    </picture>
+                                        </picture>
                                 </div>
                             </div>
                         </div>
