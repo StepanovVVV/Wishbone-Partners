@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Function for start page
-window.addEventListener('load', function() { document.body.classList.remove('hidden'); });
+// window.addEventListener('load', function() { document.body.classList.remove('hidden'); });
 
 // LazyLoad img/iframe/video
 // $(document).ready(function () {
@@ -111,9 +111,20 @@ window.addEventListener('load', function() { document.body.classList.remove('hid
 //     }
 // });
 
-var lazyLoadInstance = new LazyLoad({
-    elements_selector: ".lazyload"
-    // можно добавить другие настройки при необходимости
+// var lazyLoadInstance = new LazyLoad({
+//     elements_selector: ".lazyload"
+//     // можно добавить другие настройки при необходимости
+// });
+
+window.addEventListener('load', function() {
+  document.body.classList.remove('hidden');
+    
+  var lazyLoadInstance = new LazyLoad({
+    elements_selector: ".lazyload",
+    callback_loaded: function(el) {
+      console.log("Загружено:", el.tagName, el.getAttribute('data-src'));
+    }
+  });
 });
 
 // Fancybox
