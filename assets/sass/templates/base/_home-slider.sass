@@ -1,0 +1,94 @@
+.home-slider
+    position: relative
+    background-color: $color-3
+    &__container
+        overflow: hidden
+    &__wrap
+        width: 100%
+    &__slick
+        height: calc( 72rem - 9.5rem )
+        @include respond(medium)
+            height: rem-calc(400)
+        &:hover .slick-arrow,
+        &:hover .slick-dots
+            opacity: 1
+            visibility: visible
+    &__info
+        display: flex
+        flex-direction: column
+        height: 100%
+        padding: rem-calc(80 30 55 100)
+        @include respond(large)
+            padding: rem-calc(50)
+        @include respond(medium)
+            padding: rem-calc(60 15)
+        >h1
+            font-size: rem-calc(14)
+            font-weight: 400
+            line-height: 1.42857142857
+            letter-spacing: rem-calc(2)
+            color: $color-4
+            text-transform: uppercase
+            margin-top: rem-calc(57)
+            @include respond(medium)
+                margin-top: unset
+        >h2
+            font-size: rem-calc(54)
+            font-weight: 400
+            line-height: 1.1
+            color: $color-2
+            margin-top: rem-calc(21)
+            @include respond(small)
+                font-size: rem-calc(38)
+        >p
+            font-size: rem-calc(16)
+            font-weight: 400
+            line-height: 1.5
+            color: $color-5
+            margin-top: rem-calc(19)
+            max-width: rem-calc(509)
+            width: 100%
+            @include respond(medium)
+                max-width: 100%
+    &__btn
+        margin-top: rem-calc(30)
+        margin-left: rem-calc(5)
+    .slick-dots
+        display: flex
+        justify-content: center
+        align-items: center
+        gap: rem-calc(10)
+        position: absolute
+        bottom: rem-calc(30)
+        width: 100%
+        opacity: 0
+        visibility: hidden
+        transition: all .3s ease 0s
+        @include respond(medium)
+            bottom: rem-calc(15)
+        >li
+            display: flex
+            justify-content: center
+            align-items: center
+            width: rem-calc(15)
+            height: rem-calc(15)
+            border-radius: 50%
+            border: rem-calc(2) solid $color-1
+            cursor: pointer
+            background-color: $color-1
+            transition: all .3s ease 0s
+            >button
+                font-size: 0
+            &:hover
+                background-color: $color-6
+        >li.slick-active
+            background-color: $color-6
+    .swiper-button-next,
+    .swiper-button-prev 
+        &::after
+            color: $color-1
+    .swiper-pagination-bullet
+        width: rem-calc(10)
+        height: rem-calc(10)
+        &.swiper-pagination-bullet-active
+            background-color: $color-1
