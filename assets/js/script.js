@@ -117,24 +117,56 @@ window.addEventListener('DOMContentLoaded', function () {
     });
 });
 
+function loadScript(url, callback) {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = callback;
+    document.body.appendChild(script);
+}
 
-// Fancybox
-$(document).ready(function() {
-    $('[data-fancybox]').fancybox({
-        buttons: [
-            "zoom",
-            "slideShow",
-            "fullScreen",
-            "thumbs",
-            "close"
-        ],
-        loop: true,      
-        protect: true,  
-    });
-    $('.popup__close').on('click', function() {
-        $.fancybox.close();  
-    });
+document.addEventListener('click', function (e) {
+    const fancyTrigger = e.target.closest('[data-fancybox]');
+    if (fancyTrigger) {
+        // Только один раз
+        if (!window.FancyboxInitialized) {
+            window.FancyboxInitialized = true;
+
+            loadScript('assets/js/plugins/fancybox.min.js', function () {
+                $('[data-fancybox]').fancybox({
+                    buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
+                    loop: true,
+                    protect: true
+                });
+
+                $('.popup__close').on('click', function () {
+                    $.fancybox.close();
+                });
+
+                // Триггерим событие заново (первый клик не сработает)
+                fancyTrigger.click();
+            });
+        }
+    }
 });
+
+
+// // Fancybox
+// $(document).ready(function() {
+//     $('[data-fancybox]').fancybox({
+//         buttons: [
+//             "zoom",
+//             "slideShow",
+//             "fullScreen",
+//             "thumbs",
+//             "close"
+//         ],
+//         loop: true,      
+//         protect: true,  
+//     });
+//     $('.popup__close').on('click', function() {
+//         $.fancybox.close();  
+//     });
+// });
 
 // Parallax/jarallax effect
 // jarallax(document.querySelectorAll('.jarallax'), {
@@ -281,10 +313,25 @@ if (inputs.length > 0 && labels.length > 0) {
     });
 }
 
+
 // Mask for phones
-$(function () {
-    $("#phone").mask("+55 (999) 999-99-99");
+// $(function () {
+//     $("#phone").mask("+55 (999) 999-99-99");
+// });
+
+document.addEventListener('focusin', function (e) {
+    if (e.target.matches('#phone')) {
+        // Только один раз
+        if (!window.PhoneMaskInitialized) {
+            window.PhoneMaskInitialized = true;
+
+            loadScript('assets/js/plugins/phones-mask.js', function () {
+                $('#phone').mask("+55 (999) 999-99-99");
+            });
+        }
+    }
 });
+
 
 // Pop up
 // document.addEventListener('DOMContentLoaded', function () {
