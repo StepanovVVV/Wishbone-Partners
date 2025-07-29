@@ -111,11 +111,31 @@ window.addEventListener('load', function() { document.body.classList.remove('hid
 //     }
 // });
 
-window.addEventListener('DOMContentLoaded', function () {
+document.addEventListener("DOMContentLoaded", function () {
+    // Находим элемент .lazyload-ignore
+    var el = document.querySelector('.lazyload-ignore');
+
+    if (el) {
+        // Переносим data-src → src
+        if (el.dataset.src) {
+            el.src = el.dataset.src;
+        }
+        // Переносим data-srcset → srcset для <source>
+        var parentPicture = el.closest('picture');
+        if (parentPicture) {
+            var source = parentPicture.querySelector('source');
+            if (source && source.dataset.srcset) {
+                source.srcset = source.dataset.srcset;
+            }
+        }
+    }
+
+    // Инициализируем lazyload для всех остальных
     var lazyLoadInstance = new LazyLoad({
-        elements_selector: ".lazyload"
+        elements_selector: ".lazyload:not(.lazyload-ignore)"
     });
 });
+
 
 function loadScript(url, callback) {
     const script = document.createElement('script');
