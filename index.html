@@ -5,13 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishbone+Partners</title>
-<!--     <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css" media="print" onload="this.media='all'">
+    <!-- <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="assets/plugins/fancybox.min.css">
     </noscript> -->
     <!-- <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css"> -->
     <!-- <link rel="stylesheet" href="assets/css/plugins/select2.min.css"> -->
-    
+
     <link rel="stylesheet" href="assets/css/style.min.css" media="print" onload="this.media='all'">
     <noscript>
         <link rel="stylesheet" href="assets/css/style.min.css">
@@ -20,9 +20,14 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+
+    <link rel="preload" as="style"
+        href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;...&display=swap"
+        onload="this.onload=null;this.rel='stylesheet';">
+    <noscript>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;...&display=swap">
+    </noscript>
+
 </head>
 
 <body class="hidden body-wrapper" id="content">
@@ -72,7 +77,9 @@
                         <h1>Wishbone+Partners</h1>
                         <h2>The home of beautiful architecture.</h2>
                         <p>
-                            We are an architecture firm with a focus on beautiful but functional design. At its heart, we believe design is about usability and accessibility — these are the guiding principles for our work. Read more about our previous projects, our process and our team below.
+                            We are an architecture firm with a focus on beautiful but functional design. At its heart,
+                            we believe design is about usability and accessibility — these are the guiding principles
+                            for our work. Read more about our previous projects, our process and our team below.
                         </p>
                         <div class="home-slider__btn btn">
                             <a href="#!" class="btn__wrap">Read more</a>
@@ -86,14 +93,9 @@
                                 <div class="home-slider__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/Slider-1.webp" type="image/webp">
-                                        <img
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                                            data-src="assets/images/Slider-1.jpg"
-                                            class="lazyload"
-                                            alt="Slider-1"
-                                            decoding="async"
-                                            fetchpriority="high"
-                                        >
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/Slider-1.jpg" class="lazyload" alt="Slider-1"
+                                            decoding="async" fetchpriority="high">
                                     </picture>
                                 </div>
                             </div>
@@ -103,13 +105,9 @@
                                 <div class="home-slider__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/Slider-2.webp" type="image/webp">
-                                        <img
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                                            data-src="assets/images/Slider-2.jpg"
-                                            class="lazyload"
-                                            alt="Slider-2"
-                                            decoding="async"
-                                        >
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/Slider-2.jpg" class="lazyload" alt="Slider-2"
+                                            decoding="async">
                                     </picture>
                                 </div>
                             </div>
@@ -119,13 +117,9 @@
                                 <div class="home-slider__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/Slider-3.webp" type="image/webp">
-                                        <img
-                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
-                                            data-src="assets/images/Slider-3.jpg"
-                                            class="lazyload"
-                                            alt="Slider-3"
-                                            decoding="async"
-                                        >
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/Slider-3.jpg" class="lazyload" alt="Slider-3"
+                                            decoding="async">
                                     </picture>
                                 </div>
                             </div>
@@ -160,7 +154,9 @@
                             <div class="avatar__img">
                                 <picture>
                                     <source data-srcset="assets/images/webp/avatar-1.webp" type="image/webp">
-                                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/avatar-1.jpg" class="lazyload" alt="Stephen Collier" decoding="async">
+                                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/icons/avatar-1.jpg" class="lazyload"
+                                        alt="Stephen Collier" decoding="async">
                                 </picture>
                             </div>
                             <div class="avatar__info">
@@ -176,7 +172,9 @@
         <section class="box">
             <picture>
                 <source data-srcset="assets/images/webp/IMAGE-bg-1.webp" type="image/webp">
-                <img class="box__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/IMAGE-bg-1.jpg" alt="Reeding House" decoding="async">
+                <img class="box__img lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                    data-src="assets/images/IMAGE-bg-1.jpg" alt="Reeding House" decoding="async">
             </picture>
             <div class="grid-container box__container">
                 <div class="grid-x grid-padding-x">
@@ -201,7 +199,9 @@
                 <div class="grid-x grid-padding-x">
                     <div class="cell large-4 medium-12">
                         <div class="process__wrap">
-                            <img class="process__wrap-img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/Sketching.svg" alt="Sketching">
+                            <img class="process__wrap-img lazyload"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                data-src="assets/images/icons/Sketching.svg" alt="Sketching">
                             <h4>Sketching</h4>
                             <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla ut tristique libero. Nulla
                                 luctus sapien ac arcu tempor, vitae tempor leo iaculis.</p>
@@ -209,7 +209,9 @@
                     </div>
                     <div class="cell large-4 medium-12">
                         <div class="process__wrap">
-                            <img class="process__wrap-img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/Finalizing.svg" alt="Finalizing">
+                            <img class="process__wrap-img lazyload"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                data-src="assets/images/icons/Finalizing.svg" alt="Finalizing">
                             <h4>Finalizing</h4>
                             <p>Adipiscing elit. Nulla ut tristique libero. Nulla vitae tempor leo iaculis luctus sapien
                                 ac arcu tempor, vitae.</p>
@@ -217,7 +219,9 @@
                     </div>
                     <div class="cell large-4 medium-12">
                         <div class="process__wrap">
-                            <img class="process__wrap-img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/Building.svg" alt="Building">
+                            <img class="process__wrap-img lazyload"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                data-src="assets/images/icons/Building.svg" alt="Building">
                             <h4>Building</h4>
                             <p>Nulla ut tristique libero. Lorem ipsum ut tristique libero. Nulla luctus sapien ac arcu
                                 tempor, vitae lorem ipsum dolor leo iaculis.</p>
@@ -230,7 +234,9 @@
         <section class="box">
             <picture>
                 <source data-srcset="assets/images/webp/IMAGE-bg-2.webp" type="image/webp">
-                <img class="box__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/IMAGE-bg-2.jpg" alt="The marble staircase" decoding="async">
+                <img class="box__img lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                    data-src="assets/images/IMAGE-bg-2.jpg" alt="The marble staircase" decoding="async">
             </picture>
             <div class="grid-container box__container">
                 <div class="grid-x grid-padding-x">
@@ -258,16 +264,24 @@
                     <div class="cell large-6 medium-12">
                         <div class="clients__logos">
                             <div class="clients__logos-logo">
-                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/logos/Hill&Hayes.svg" alt="Hill&Hayes">
+                                <img class="lazyload"
+                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                    data-src="assets/images/logos/Hill&Hayes.svg" alt="Hill&Hayes">
                             </div>
                             <div class="clients__logos-logo">
-                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/logos/Riksgransen.svg" alt="Riksgransen">
+                                <img class="lazyload"
+                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                    data-src="assets/images/logos/Riksgransen.svg" alt="Riksgransen">
                             </div>
                             <div class="clients__logos-logo">
-                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/logos/StudioCai.svg" alt="StudioCai">
+                                <img class="lazyload"
+                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                    data-src="assets/images/logos/StudioCai.svg" alt="StudioCai">
                             </div>
                             <div class="clients__logos-logo">
-                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/logos/ChillIndustries.svg" alt="ChillIndustries">
+                                <img class="lazyload"
+                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                    data-src="assets/images/logos/ChillIndustries.svg" alt="ChillIndustries">
                             </div>
                         </div>
                     </div>
@@ -278,7 +292,9 @@
         <section class="box">
             <picture>
                 <source data-srcset="assets/images/webp/IMAGE-bg-3.webp" type="image/webp">
-                <img class="box__img lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/IMAGE-bg-3.jpg" alt="The swirling staircase" decoding="async">
+                <img class="box__img lazyload"
+                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                    data-src="assets/images/IMAGE-bg-3.jpg" alt="The swirling staircase" decoding="async">
             </picture>
             <div class="grid-container box__container box__container-left">
                 <div class="grid-x grid-padding-x">
@@ -356,7 +372,9 @@
                             <div class="projects__img">
                                 <picture>
                                     <source data-srcset="assets/images/webp/project-1.webp" type="image/webp">
-                                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/project-1.jpg" alt="Big Tower" decoding="async">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-1.jpg" alt="Big Tower" decoding="async">
                                 </picture>
                             </div>
                             <div class="projects__info">
@@ -375,7 +393,9 @@
                             <div class="projects__img">
                                 <picture>
                                     <source data-srcset="assets/images/webp/project-2.webp" type="image/webp">
-                                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/project-2.jpg" alt="Big Road Brewery" decoding="async">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-2.jpg" alt="Big Road Brewery" decoding="async">
                                 </picture>
                             </div>
                             <div class="projects__info">
@@ -394,7 +414,9 @@
                             <div class="projects__img">
                                 <picture>
                                     <source data-srcset="assets/images/webp/project-3.webp" type="image/webp">
-                                    <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/project-3.jpg" alt="Big Build" decoding="async">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-3.jpg" alt="Big Build" decoding="async">
                                 </picture>
                             </div>
                             <div class="projects__info">
@@ -436,7 +458,10 @@
                                 <div class="avatar__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/avatar-1.webp" type="image/webp">
-                                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/avatar-1.jpg" alt="Stephen Collier" decoding="async">
+                                        <img class="lazyload"
+                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/avatar-1.jpg" alt="Stephen Collier"
+                                            decoding="async">
                                     </picture>
                                 </div>
                                 <div class="avatar__info">
@@ -448,7 +473,9 @@
                                 <div class="avatar__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/avatar-2.webp" type="image/webp">
-                                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/avatar-2.jpg" alt="Nolan Peters" decoding="async">
+                                        <img class="lazyload"
+                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/avatar-2.jpg" alt="Nolan Peters" decoding="async">
                                     </picture>
                                 </div>
                                 <div class="avatar__info">
@@ -460,7 +487,9 @@
                                 <div class="avatar__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/avatar-3.webp" type="image/webp">
-                                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/avatar-3.jpg" alt="Ferris Wonder" decoding="async">
+                                        <img class="lazyload"
+                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/avatar-3.jpg" alt="Ferris Wonder" decoding="async">
                                     </picture>
                                 </div>
                                 <div class="avatar__info">
@@ -472,7 +501,9 @@
                                 <div class="avatar__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/avatar-4.webp" type="image/webp">
-                                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/avatar-4.jpg" alt="Aria Stone" decoding="async">
+                                        <img class="lazyload"
+                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/avatar-4.jpg" alt="Aria Stone" decoding="async">
                                     </picture>
                                 </div>
                                 <div class="avatar__info">
@@ -484,7 +515,9 @@
                                 <div class="avatar__img">
                                     <picture>
                                         <source data-srcset="assets/images/webp/avatar-5.webp" type="image/webp">
-                                        <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/avatar-5.jpg" alt="Niko Ferry" decoding="async">
+                                        <img class="lazyload"
+                                            src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/avatar-5.jpg" alt="Niko Ferry" decoding="async">
                                     </picture>
                                 </div>
                                 <div class="avatar__info">
@@ -514,7 +547,9 @@
                                                 What does Wishbone+Partners specialize in?
                                             </h3>
                                             <div class="accordion__icon">
-                                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/plus.svg" alt="plus">
+                                                <img class="lazyload"
+                                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                                    data-src="assets/images/icons/plus.svg" alt="plus">
                                             </div>
                                         </div>
                                         <div class="accordion__info">
@@ -531,7 +566,9 @@
                                                 What makes your design approach unique?
                                             </h3>
                                             <div class="accordion__icon">
-                                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/plus.svg" alt="plus">
+                                                <img class="lazyload"
+                                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                                    data-src="assets/images/icons/plus.svg" alt="plus">
                                             </div>
                                         </div>
                                         <div class="accordion__info">
@@ -548,7 +585,9 @@
                                                 Where can I see examples of your past work?
                                             </h3>
                                             <div class="accordion__icon">
-                                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/plus.svg" alt="plus">
+                                                <img class="lazyload"
+                                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                                    data-src="assets/images/icons/plus.svg" alt="plus">
                                             </div>
                                         </div>
                                         <div class="accordion__info">
@@ -564,7 +603,9 @@
                                                 What is your design process like?
                                             </h3>
                                             <div class="accordion__icon">
-                                                <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/icons/plus.svg" alt="plus">
+                                                <img class="lazyload"
+                                                    src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                                    data-src="assets/images/icons/plus.svg" alt="plus">
                                             </div>
                                         </div>
                                         <div class="accordion__info">
@@ -611,7 +652,9 @@
                 <div class="cell">
                     <div class="footer__wrap">
                         <a href="#!" class="footer__logo">
-                            <img class="lazyload" src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/Wishbone.svg" alt="Wishbone+Partners">
+                            <img class="lazyload"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                data-src="assets/images/Wishbone.svg" alt="Wishbone+Partners">
                         </a>
                     </div>
                 </div>
@@ -632,18 +675,22 @@
                             <ul class="socials socials-position">
                                 <li class="socials__item">
                                     <a href="https://x.com/?lang=en" class="socials__link" target="_blank">
-                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/social/twitter.svg" alt="Twitter" class="socials__icon lazyload">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/social/twitter.svg" alt="Twitter"
+                                            class="socials__icon lazyload">
                                     </a>
                                 </li>
                                 <li class="socials__item">
                                     <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/social/instagram.svg" alt="Instagram"
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/social/instagram.svg" alt="Instagram"
                                             class="socials__icon lazyload">
                                     </a>
                                 </li>
                                 <li class="socials__item">
                                     <a href="https://www.facebook.com/" class="socials__link" target="_blank">
-                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/social/facebook.svg" alt="Facebook"
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/social/facebook.svg" alt="Facebook"
                                             class="socials__icon lazyload">
                                     </a>
                                 </li>
@@ -668,8 +715,8 @@
                     <form action="/process_form.php" method="post" class="form">
                         <input type="text" id="name-2" name="name" placeholder="Name" required autocomplete="off"
                             class="form__input">
-                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number"
-                            autocomplete="off" class="form__input phone">
+                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number" autocomplete="off"
+                            class="form__input phone">
                         <div class="form__btn btn">
                             <button type="submit" class="btn__wrap"
                                 onclick="redirectToThankYouPage(event)">Subscribe</button>
@@ -683,7 +730,8 @@
     <!-- Scroll up btn -->
     <div class="scroll-up">
         <div class="scroll-up__icon">
-            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" class="lazyload" data-src="assets/images/icons/arrow-up.svg" alt="Scroll up">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" class="lazyload"
+                data-src="assets/images/icons/arrow-up.svg" alt="Scroll up">
         </div>
     </div>
 
@@ -695,30 +743,33 @@
         <ul class="socials phones__socials">
             <li class="socials__item">
                 <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/social/twitter.svg" alt="Twitter" class="socials__icon lazyload">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        data-src="assets/images/social/twitter.svg" alt="Twitter" class="socials__icon lazyload">
                 </a>
             </li>
             <li class="socials__item">
                 <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/social/instagram.svg" alt="Instagram" class="socials__icon lazyload">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        data-src="assets/images/social/instagram.svg" alt="Instagram" class="socials__icon lazyload">
                 </a>
             </li>
             <li class="socials__item">
                 <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" data-src="assets/images/social/facebook.svg" alt="Facebook" class="socials__icon lazyload">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        data-src="assets/images/social/facebook.svg" alt="Facebook" class="socials__icon lazyload">
                 </a>
             </li>
         </ul>
     </div>
 
     <script src="assets/js/plugins/jquery-3.7.1.js"></script>
-<!--     <script src="assets/js/plugins/fancybox.min.js"></script> -->
+    <!-- <script src="assets/js/plugins/fancybox.min.js"></script> -->
     <script src="assets/js/plugins/lazyload.min.js"></script>
     <!-- <script src="https://cdn.jsdelivr.net/npm/vanilla-lazyload@17.8.3/dist/lazyload.min.js"></script> -->
 
     <!-- <script src="assets/js/plugins/select2.min.js"></script> -->
     <!-- <script src="assets/js/plugins/map.js"></script> -->
-<!--     <script src="assets/js/plugins/phones-mask.js"></script> -->
+    <!-- <script src="assets/js/plugins/phones-mask.js"></script> -->
     <script src="assets/js/plugins/slick.min.js"></script>
     <!-- <script src="assets/js/plugins/jarallax.min.js"></script> -->
     <script src="assets/js/script.js"></script>
