@@ -111,30 +111,29 @@ window.addEventListener('load', function() { document.body.classList.remove('hid
 //     }
 // });
 
-document.addEventListener("DOMContentLoaded", function () {
-    // Находим элемент .lazyload-ignore
-    var el = document.querySelector('.lazyload-ignore');
+window.addEventListener('DOMContentLoaded', function () {
+    // Расленяем вручную первое изображение в <picture>
+    const lcpImg = document.querySelector('picture img.lazyload[fetchpriority="high"]');
+    if (lcpImg) {
+        const source = lcpImg.closest('picture').querySelector('source');
 
-    if (el) {
-        // Переносим data-src → src
-        if (el.dataset.src) {
-            el.src = el.dataset.src;
+        if (source && source.dataset.srcset) {
+            source.srcset = source.dataset.srcset;
         }
-        // Переносим data-srcset → srcset для <source>
-        var parentPicture = el.closest('picture');
-        if (parentPicture) {
-            var source = parentPicture.querySelector('source');
-            if (source && source.dataset.srcset) {
-                source.srcset = source.dataset.srcset;
-            }
+
+        if (lcpImg.dataset.src) {
+            lcpImg.src = lcpImg.dataset.src;
         }
+
+        lcpImg.classList.remove('lazyload');
     }
 
-    // Инициализируем lazyload для всех остальных
+    // Затем инициализируем LazyLoad для остальных
     var lazyLoadInstance = new LazyLoad({
-        elements_selector: ".lazyload:not(.lazyload-ignore)"
+        elements_selector: ".lazyload"
     });
 });
+
 
 
 function loadScript(url, callback) {
