@@ -37,86 +37,18 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Function for start page
-window.addEventListener('load', function() { document.body.classList.remove('hidden'); });
+window.addEventListener('load', function() {
+    document.body.classList.remove('hidden');
+});
 
-// LazyLoad img/iframe/video
-// $(document).ready(function () {
-//     $('img[src]').each(function () {
-//         var $img = $(this);
-//         var src = $img.attr('src');
-//         $img.attr('data-src', src);
-//         $img.removeAttr('src');
-//         $img.addClass('lazyload');
-//     });
-
-//     var lazyLoadInstance = new LazyLoad({
-//         elements_selector: 'img[data-src], .pre-lazyload, [data-pre-lazyload], video[lazy-src]',
-//         data_src: "src",
-//         data_srcset: "lazy-srcset",
-//         data_sizes: "lazy-sizes",
-//         skip_invisible: false,
-//         class_loading: "lazyloading",
-//         class_loaded: "lazyloaded"
-//     });
-
-//     window.addEventListener('LazyLoad::Initialized', function (e) {
-//     }, false);
-
-//     $(document).on("init", ".slick-slider", function (e, slick) {
-//         lazyLoadInstance.loadAll(slick.$slider[0].getElementsByTagName('img'));
-//     });
-
-//     // Init parallax
-//     if (typeof $.fn.jarallax !== 'undefined') {
-//         $('.jarallax').jarallax({
-//             speed: 0.5
-//         });
-
-//         $('.jarallax-inline').jarallax({
-//             speed: 0.5,
-//             keepImg: true,
-//             onInit: function () {
-//                 lazyLoadInstance.update();
-//             }
-//         });
-//     }
-
-//     $(document).on('updated_wc_div', function () {
-//         lazyLoadInstance.loadAll();
-//     });
-// });
-
-// document.addEventListener("DOMContentLoaded", function () {
-//     let lazyImages = [].slice.call(document.querySelectorAll("img.lazy"));
-
-//     if ("IntersectionObserver" in window) {
-//         let lazyImageObserver = new IntersectionObserver(function (entries, observer) {
-//             entries.forEach(function (entry) {
-//                 if (entry.isIntersecting) {
-//                     let lazyImage = entry.target;
-//                     lazyImage.src = lazyImage.dataset.src;
-//                     lazyImage.classList.remove("lazy");
-//                     lazyImageObserver.unobserve(lazyImage);
-//                 }
-//             });
-//         });
-
-//         lazyImages.forEach(function (lazyImage) {
-//             lazyImageObserver.observe(lazyImage);
-//         });
-//     } else {
-//         lazyImages.forEach(function (lazyImage) {
-//             lazyImage.src = lazyImage.dataset.src;
-//         });
-//     }
-// });
-
+// LazyLoad
 window.addEventListener('DOMContentLoaded', function () {
     var lazyLoadInstance = new LazyLoad({
         elements_selector: ".lazyload"
     });
 });
 
+// Download scripts after load page
 function loadScript(url, callback) {
     const script = document.createElement('script');
     script.src = url;
@@ -124,10 +56,10 @@ function loadScript(url, callback) {
     document.body.appendChild(script);
 }
 
+// Fancybox
 document.addEventListener('click', function (e) {
     const fancyTrigger = e.target.closest('[data-fancybox]');
     if (fancyTrigger) {
-        // Только один раз
         if (!window.FancyboxInitialized) {
             window.FancyboxInitialized = true;
 
@@ -141,32 +73,24 @@ document.addEventListener('click', function (e) {
                 $('.popup__close').on('click', function () {
                     $.fancybox.close();
                 });
-
-                // Триггерим событие заново (первый клик не сработает)
                 fancyTrigger.click();
             });
         }
     }
 });
 
+// Mask for phones
+document.addEventListener('focusin', function (e) {
+    if (e.target.matches('#phone')) {
+        if (!window.PhoneMaskInitialized) {
+            window.PhoneMaskInitialized = true;
 
-// // Fancybox
-// $(document).ready(function() {
-//     $('[data-fancybox]').fancybox({
-//         buttons: [
-//             "zoom",
-//             "slideShow",
-//             "fullScreen",
-//             "thumbs",
-//             "close"
-//         ],
-//         loop: true,      
-//         protect: true,  
-//     });
-//     $('.popup__close').on('click', function() {
-//         $.fancybox.close();  
-//     });
-// });
+            loadScript('assets/js/plugins/phones-mask.js', function () {
+                $('#phone').mask("+55 (999) 999-99-99");
+            });
+        }
+    }
+});
 
 // Parallax/jarallax effect
 // jarallax(document.querySelectorAll('.jarallax'), {
@@ -176,33 +100,7 @@ document.addEventListener('click', function (e) {
 // });
 
 // Home slider
-// $(document).ready(function () {
-//     var $slider = $('.home-slider__slick');
-//     var slideCount = $slider.children().length;
-
-//     $slider.slick({
-//         dots: slideCount > 1,
-//         arrows: true, 
-//         infinite: true,
-//         speed: 300,
-//         slidesToShow: 1,
-//         autoplay: true,
-//         autoplaySpeed: 3000,
-//         responsive: [
-//             {
-//                 breakpoint: 1025,
-//                 settings: {
-//                     arrows: true,
-//                     dots: false
-//                 }
-//             }
-//         ] 
-//     });
-// });
-
 var swiper = new Swiper(".mySwiper", {
-    // spaceBetween: 30,
-    centeredSlides: true,
     loop: true,
     autoplay: {
         delay: 2500,
@@ -237,7 +135,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
 // For scroll page
 const headerScroll = document.querySelector('.header');
 const menuLinks = document.querySelectorAll('a[href^="#"]');
@@ -266,50 +163,102 @@ menuLinks.forEach(link => {
     });
 });
 
-// Accordion
-$(function () {
-    var Accordion = function (el, multiple) {
+
+
+// Accordion - jQuery
+// $(function () {
+//     var Accordion = function (el, multiple) {
+//         this.el = el || {};
+//         this.multiple = multiple || false;
+
+//         var dropdownlink = this.el.find('.accordion__title');
+//         dropdownlink.on('click', {
+//                 el: this.el,
+//                 multiple: this.multiple
+//             },
+//             this.dropdown);
+//     };
+
+//     Accordion.prototype.dropdown = function (e) {
+//         var $el = e.data.el,
+//             $this = $(this),
+//             $next = $this.next();
+
+//         $next.slideToggle();
+//         $this.parent().toggleClass('open');
+
+//         if (!e.data.multiple) {
+//             $el.find('.accordion__info').not($next).slideUp().parent().removeClass('open');
+//         }
+//     }
+
+//     var accordion = new Accordion($('.accordion'), false);
+// })
+
+ let isJqueryLoaded = false;
+
+  document.addEventListener('click', function handleFirstClick(e) {
+    if (isJqueryLoaded) return;
+
+    isJqueryLoaded = true;
+
+    const script = document.createElement('script');
+    script.src = 'assets/js/plugins/jquery-3.7.1.js';
+
+    script.onload = () => {
+      console.log('jQuery загружена');
+
+      // Инициализация аккордеона
+      var Accordion = function (el, multiple) {
         this.el = el || {};
         this.multiple = multiple || false;
 
         var dropdownlink = this.el.find('.accordion__title');
         dropdownlink.on('click', {
-                el: this.el,
-                multiple: this.multiple
-            },
-            this.dropdown);
-    };
+          el: this.el,
+          multiple: this.multiple
+        }, this.dropdown);
+      };
 
-    Accordion.prototype.dropdown = function (e) {
+      Accordion.prototype.dropdown = function (e) {
         var $el = e.data.el,
-            $this = $(this),
-            $next = $this.next();
+          $this = $(this),
+          $next = $this.next();
 
         $next.slideToggle();
         $this.parent().toggleClass('open');
 
         if (!e.data.multiple) {
-            $el.find('.accordion__info').not($next).slideUp().parent().removeClass('open');
+          $el.find('.accordion__info').not($next).slideUp().parent().removeClass('open');
         }
-    }
+      };
 
-    var accordion = new Accordion($('.accordion'), false);
-})
+      new Accordion($('.accordion'), false);
+
+      // 🔁 Повторно вызываем тот клик, который пользователь сделал
+      e.target.click();
+    };
+
+    document.body.appendChild(script);
+
+    // Удаляем обработчик, чтобы он больше не мешал
+    document.removeEventListener('click', handleFirstClick);
+  });
 
 // Tabs
-$(function () {
-    $("div.tabs__btns").on("click", "div.tabs__btn:not(.active)", function () {
-        $(this)
-            .addClass("active")
-            .siblings()
-            .removeClass("active")
-            .closest("div.tabs")
-            .find("div.tabs__item")
-            .removeClass("active")
-            .eq($(this).index())
-            .addClass("active");
-    });
-});
+// $(function () {
+//     $("div.tabs__btns").on("click", "div.tabs__btn:not(.active)", function () {
+//         $(this)
+//             .addClass("active")
+//             .siblings()
+//             .removeClass("active")
+//             .closest("div.tabs")
+//             .find("div.tabs__item")
+//             .removeClass("active")
+//             .eq($(this).index())
+//             .addClass("active");
+//     });
+// });
 
 // For active form
 const inputs = document.querySelectorAll('.form__input');
@@ -330,98 +279,6 @@ if (inputs.length > 0 && labels.length > 0) {
         });
     });
 }
-
-
-// Mask for phones
-// $(function () {
-//     $("#phone").mask("+55 (999) 999-99-99");
-// });
-
-document.addEventListener('focusin', function (e) {
-    if (e.target.matches('#phone')) {
-        // Только один раз
-        if (!window.PhoneMaskInitialized) {
-            window.PhoneMaskInitialized = true;
-
-            loadScript('assets/js/plugins/phones-mask.js', function () {
-                $('#phone').mask("+55 (999) 999-99-99");
-            });
-        }
-    }
-});
-
-
-// Pop up
-// document.addEventListener('DOMContentLoaded', function () {
-//     var openPopupButtons = document.querySelectorAll('.openPopup');
-//     var popup = document.getElementById('popup');
-//     var closePopupWrap = document.getElementsByClassName('popup__container')[0];
-//     var closePopupButton = document.getElementsByClassName('popup__close')[0];
-
-//     if (openPopupButtons.length > 0) {
-//         openPopupButtons.forEach(function(button) {
-//             button.onclick = function() {
-//                 if (popup) {
-//                     popup.style.visibility = 'visible';
-//                     popup.style.opacity = '1';
-//                     popup.style.zIndex = '999999';
-//                     popup.style.top = '0';
-//                     document.body.style.overflow = 'hidden';
-//                 }
-//             };
-//         });
-//     }
-
-//     if (closePopupButton) {
-//         closePopupButton.onclick = function() {
-//             if (popup) {
-//                 popup.style.visibility = 'hidden';
-//                 popup.style.opacity = '0';
-//                 popup.style.zIndex = '-999999';
-//                 popup.style.top = '-1000%';
-//                 document.body.style.overflow = 'auto';
-//             }
-//         };
-//     }
-
-//     if (closePopupWrap && popup) {
-//         window.onclick = function(event) {
-//             if (event.target === closePopupWrap) {
-//                 popup.style.visibility = 'hidden';
-//                 popup.style.opacity = '0';
-//                 popup.style.zIndex = '-999999';
-//                 popup.style.top = '-1000%';
-//                 document.body.style.overflow = 'auto';
-//             }
-//         };
-//     }
-// });
-
-// Btn for scroll up 
-document.addEventListener('DOMContentLoaded', function () {
-    const scrollUpButton = document.querySelector('.scroll-up');
-
-    function toggleScrollUpButton() {
-        if (window.scrollY > 100) {
-            scrollUpButton.classList.add('show');
-        } else {
-            scrollUpButton.classList.remove('show');
-        }
-    }
-
-    function scrollToTop() {
-        window.scrollTo({
-            top: 0,
-            behavior: 'smooth'
-        });
-    }
-
-    toggleScrollUpButton();
-
-    window.addEventListener('scroll', toggleScrollUpButton);
-
-    scrollUpButton.addEventListener('click', scrollToTop);
-});
 
 // For phones add/delete class active
 document.addEventListener('DOMContentLoaded', function () {
@@ -481,3 +338,4 @@ function redirectToThankYouPage(event) {
 
     window.location.href = '/thank-you.html'; // onclick="redirectToThankYouPage(event)"
 }
+
