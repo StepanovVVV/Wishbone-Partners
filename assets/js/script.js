@@ -105,24 +105,36 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Parallax/jarallax effect
-document.addEventListener('DOMContentLoaded', function () {
-    if (window.innerWidth > 1024) {
-        const jarallaxElements = document.querySelectorAll('.jarallax');
-        if (jarallaxElements.length && !window.JarallaxInitialized) {
-            window.JarallaxInitialized = true;
+function loadScript(url, callback) {
+  const script = document.createElement('script');
+  script.src = url;
+  script.onload = callback;
+  document.body.appendChild(script);
+}
 
-            loadScript('assets/js/plugins/jarallax.min.js', function () {
-                requestAnimationFrame(() => {
-                    jarallax(jarallaxElements, {
-                        speed: 0.5,
-                        imgSize: 'cover',
-                        imgPosition: 'center',
-                    });
-                });
-            });
-        }
-    }
+function initJarallax() {
+  if (window.JarallaxInitialized) return;
+  if (window.innerWidth <= 1024) return; // не грузим на мобильных
+
+  window.JarallaxInitialized = true;
+  loadScript('assets/js/plugins/jarallax.min.js', () => {
+    requestAnimationFrame(() => {
+      const jarallaxElements = document.querySelectorAll('.jarallax');
+      jarallax(jarallaxElements, {
+        speed: 0.5,
+        imgSize: 'cover',
+        imgPosition: 'center',
+      });
+    });
+  });
+}
+
+const userEvents = ['scroll', 'click', 'touchstart', 'mousemove'];
+
+userEvents.forEach(eventName => {
+  window.addEventListener(eventName, initJarallax, { passive: true, once: true });
 });
+
 
 // Home slider
 var swiper = new Swiper(".mySwiper", {
