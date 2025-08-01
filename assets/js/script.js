@@ -49,64 +49,64 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 // Download scripts after load page
-// function loadScript(url, callback) {
-//     const script = document.createElement('script');
-//     script.src = url;
-//     script.onload = callback;
-//     document.body.appendChild(script);
-// }
+function loadScript(url, callback) {
+    const script = document.createElement('script');
+    script.src = url;
+    script.onload = callback;
+    document.body.appendChild(script);
+}
 
 // Fancybox
-// document.addEventListener('click', function (e) {
-//     const fancyTrigger = e.target.closest('[data-fancybox]');
-//     if (fancyTrigger) {
-//         if (!window.FancyboxInitialized) {
-//             window.FancyboxInitialized = true;
+document.addEventListener('click', function (e) {
+    const fancyTrigger = e.target.closest('[data-fancybox]');
+    if (fancyTrigger) {
+        if (!window.FancyboxInitialized) {
+            window.FancyboxInitialized = true;
 
-//             loadScript('assets/js/plugins/fancybox.min.js', function () {
-//                 $('[data-fancybox]').fancybox({
-//                     buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
-//                     loop: true,
-//                     protect: true
-//                 });
+            loadScript('assets/js/plugins/fancybox.min.js', function () {
+                $('[data-fancybox]').fancybox({
+                    buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
+                    loop: true,
+                    protect: true
+                });
 
-//                 $('.popup__close').on('click', function () {
-//                     $.fancybox.close();
-//                 });
-//                 fancyTrigger.click();
-//             });
-//         }
-//     }
-// });
-
-// // Mask for phones
-// document.addEventListener('focusin', function (e) {
-//     if (e.target.matches('#phone')) {
-//         if (!window.PhoneMaskInitialized) {
-//             window.PhoneMaskInitialized = true;
-
-//             loadScript('assets/js/plugins/phones-mask.js', function () {
-//                 $('#phone').mask("+55 (999) 999-99-99");
-//             });
-//         }
-//     }
-// });
-
-$(function () {
-  // Fancybox init
-  $('[data-fancybox]').fancybox({
-    buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
-    loop: true,
-    protect: true
-  });
-
-  $('.popup__close').on('click', function () {
-    $.fancybox.close();
-  });
-
-  // Phone mask
-  $('#phone').mask("+55 (999) 999-99-99");
+                $('.popup__close').on('click', function () {
+                    $.fancybox.close();
+                });
+                fancyTrigger.click();
+            });
+        }
+    }
 });
+
+// Mask for phones
+document.addEventListener('focusin', function (e) {
+    if (e.target.matches('#phone')) {
+        if (!window.PhoneMaskInitialized) {
+            window.PhoneMaskInitialized = true;
+
+            loadScript('assets/js/plugins/phones-mask.js', function () {
+                $('#phone').mask("+55 (999) 999-99-99");
+            });
+        }
+    }
+});
+
+// $(function () {
+//   // Fancybox init
+//   $('[data-fancybox]').fancybox({
+//     buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
+//     loop: true,
+//     protect: true
+//   });
+
+//   $('.popup__close').on('click', function () {
+//     $.fancybox.close();
+//   });
+
+//   // Phone mask
+//   $('#phone').mask("+55 (999) 999-99-99");
+// });
 
 
 // Parallax/jarallax effect
