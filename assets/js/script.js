@@ -111,12 +111,15 @@ $(function () {
 
 // Parallax/jarallax effect
 if (window.innerWidth > 1024) {
-    jarallax(document.querySelectorAll('.jarallax'), {
-        speed: 0.5,
-        imgSize: 'cover',
-        imgPosition: 'center',
+    requestAnimationFrame(() => {
+        jarallax(document.querySelectorAll('.jarallax'), {
+            speed: 0.5,
+            imgSize: 'cover',
+            imgPosition: 'center',
+        });
     });
 }
+
 
 // Home slider
 var swiper = new Swiper(".mySwiper", {
