@@ -92,6 +92,27 @@ document.addEventListener('focusin', function (e) {
     }
 });
 
+// Parallax/jarallax effect
+document.addEventListener('DOMContentLoaded', function () {
+    if (window.innerWidth > 1024) {
+        const jarallaxElements = document.querySelectorAll('.jarallax');
+        if (jarallaxElements.length && !window.JarallaxInitialized) {
+            window.JarallaxInitialized = true;
+
+            loadScript('assets/js/plugins/jarallax.min.js', function () {
+                requestAnimationFrame(() => {
+                    jarallax(jarallaxElements, {
+                        speed: 0.5,
+                        imgSize: 'cover',
+                        imgPosition: 'center',
+                    });
+                });
+            });
+        }
+    }
+});
+
+
 // $(function () {
 //   // Fancybox init
 //   $('[data-fancybox]').fancybox({
@@ -110,15 +131,15 @@ document.addEventListener('focusin', function (e) {
 
 
 // Parallax/jarallax effect
-if (window.innerWidth > 1024) {
-    requestAnimationFrame(() => {
-        jarallax(document.querySelectorAll('.jarallax'), {
-            speed: 0.5,
-            imgSize: 'cover',
-            imgPosition: 'center',
-        });
-    });
-}
+// if (window.innerWidth > 1024) {
+//     requestAnimationFrame(() => {
+//         jarallax(document.querySelectorAll('.jarallax'), {
+//             speed: 0.5,
+//             imgSize: 'cover',
+//             imgPosition: 'center',
+//         });
+//     });
+// }
 
 
 // Home slider
