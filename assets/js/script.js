@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Function for start page
-window.addEventListener('load', function() {
+window.addEventListener('load', function () {
     document.body.classList.remove('hidden');
 });
 
@@ -49,55 +49,72 @@ window.addEventListener('DOMContentLoaded', function () {
 });
 
 // Download scripts after load page
-function loadScript(url, callback) {
-    const script = document.createElement('script');
-    script.src = url;
-    script.onload = callback;
-    document.body.appendChild(script);
-}
+// function loadScript(url, callback) {
+//     const script = document.createElement('script');
+//     script.src = url;
+//     script.onload = callback;
+//     document.body.appendChild(script);
+// }
 
 // Fancybox
-document.addEventListener('click', function (e) {
-    const fancyTrigger = e.target.closest('[data-fancybox]');
-    if (fancyTrigger) {
-        if (!window.FancyboxInitialized) {
-            window.FancyboxInitialized = true;
+// document.addEventListener('click', function (e) {
+//     const fancyTrigger = e.target.closest('[data-fancybox]');
+//     if (fancyTrigger) {
+//         if (!window.FancyboxInitialized) {
+//             window.FancyboxInitialized = true;
 
-            loadScript('assets/js/plugins/fancybox.min.js', function () {
-                $('[data-fancybox]').fancybox({
-                    buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
-                    loop: true,
-                    protect: true
-                });
+//             loadScript('assets/js/plugins/fancybox.min.js', function () {
+//                 $('[data-fancybox]').fancybox({
+//                     buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
+//                     loop: true,
+//                     protect: true
+//                 });
 
-                $('.popup__close').on('click', function () {
-                    $.fancybox.close();
-                });
-                fancyTrigger.click();
-            });
-        }
-    }
+//                 $('.popup__close').on('click', function () {
+//                     $.fancybox.close();
+//                 });
+//                 fancyTrigger.click();
+//             });
+//         }
+//     }
+// });
+
+// // Mask for phones
+// document.addEventListener('focusin', function (e) {
+//     if (e.target.matches('#phone')) {
+//         if (!window.PhoneMaskInitialized) {
+//             window.PhoneMaskInitialized = true;
+
+//             loadScript('assets/js/plugins/phones-mask.js', function () {
+//                 $('#phone').mask("+55 (999) 999-99-99");
+//             });
+//         }
+//     }
+// });
+
+$(function () {
+  // Fancybox init
+  $('[data-fancybox]').fancybox({
+    buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
+    loop: true,
+    protect: true
+  });
+
+  $('.popup__close').on('click', function () {
+    $.fancybox.close();
+  });
+
+  // Phone mask
+  $('#phone').mask("+55 (999) 999-99-99");
 });
 
-// Mask for phones
-document.addEventListener('focusin', function (e) {
-    if (e.target.matches('#phone')) {
-        if (!window.PhoneMaskInitialized) {
-            window.PhoneMaskInitialized = true;
-
-            loadScript('assets/js/plugins/phones-mask.js', function () {
-                $('#phone').mask("+55 (999) 999-99-99");
-            });
-        }
-    }
-});
 
 // Parallax/jarallax effect
-// jarallax(document.querySelectorAll('.jarallax'), {
-//     speed: .5,
-//     imgSize: 'cover',
-//     imgPosition: 'center',
-// });
+jarallax(document.querySelectorAll('.jarallax'), {
+    speed: .5,
+    imgSize: 'cover',
+    imgPosition: 'center',
+});
 
 // Home slider
 var swiper = new Swiper(".mySwiper", {
@@ -165,85 +182,6 @@ menuLinks.forEach(link => {
 
 
 
-// Accordion - jQuery
-// $(function () {
-//     var Accordion = function (el, multiple) {
-//         this.el = el || {};
-//         this.multiple = multiple || false;
-
-//         var dropdownlink = this.el.find('.accordion__title');
-//         dropdownlink.on('click', {
-//                 el: this.el,
-//                 multiple: this.multiple
-//             },
-//             this.dropdown);
-//     };
-
-//     Accordion.prototype.dropdown = function (e) {
-//         var $el = e.data.el,
-//             $this = $(this),
-//             $next = $this.next();
-
-//         $next.slideToggle();
-//         $this.parent().toggleClass('open');
-
-//         if (!e.data.multiple) {
-//             $el.find('.accordion__info').not($next).slideUp().parent().removeClass('open');
-//         }
-//     }
-
-//     var accordion = new Accordion($('.accordion'), false);
-// })
-
- let isJqueryLoaded = false;
-
-  document.addEventListener('click', function handleFirstClick(e) {
-    if (isJqueryLoaded) return;
-
-    isJqueryLoaded = true;
-
-    const script = document.createElement('script');
-    script.src = 'assets/js/plugins/jquery-3.7.1.js';
-
-    script.onload = () => {
-      console.log('jQuery загружена');
-
-      // Инициализация аккордеона
-      var Accordion = function (el, multiple) {
-        this.el = el || {};
-        this.multiple = multiple || false;
-
-        var dropdownlink = this.el.find('.accordion__title');
-        dropdownlink.on('click', {
-          el: this.el,
-          multiple: this.multiple
-        }, this.dropdown);
-      };
-
-      Accordion.prototype.dropdown = function (e) {
-        var $el = e.data.el,
-          $this = $(this),
-          $next = $this.next();
-
-        $next.slideToggle();
-        $this.parent().toggleClass('open');
-
-        if (!e.data.multiple) {
-          $el.find('.accordion__info').not($next).slideUp().parent().removeClass('open');
-        }
-      };
-
-      new Accordion($('.accordion'), false);
-
-      // 🔁 Повторно вызываем тот клик, который пользователь сделал
-      e.target.click();
-    };
-
-    document.body.appendChild(script);
-
-    // Удаляем обработчик, чтобы он больше не мешал
-    document.removeEventListener('click', handleFirstClick);
-  });
 
 // Tabs
 // $(function () {
@@ -291,7 +229,7 @@ document.addEventListener('DOMContentLoaded', function () {
         }
 
         function closeOnClickOutside(event) {
-            if (!phonesIcon.contains(event.target) && 
+            if (!phonesIcon.contains(event.target) &&
                 !phonesSocials.contains(event.target)) {
                 phonesSocials.classList.remove('active');
             }
@@ -339,3 +277,33 @@ function redirectToThankYouPage(event) {
     window.location.href = '/thank-you.html'; // onclick="redirectToThankYouPage(event)"
 }
 
+// <!---------- jQuery ----------!>
+$(document).ready(function () {
+
+    // Accordion 
+    var Accordion = function (el, multiple) {
+        this.el = el || {};
+        this.multiple = multiple || false;
+
+        var dropdownlink = this.el.find('.accordion__title');
+        dropdownlink.on('click', {
+            el: this.el,
+            multiple: this.multiple
+        }, this.dropdown);
+    };
+
+    Accordion.prototype.dropdown = function (e) {
+        var $el = e.data.el,
+            $this = $(this),
+            $next = $this.next();
+
+        $next.slideToggle();
+        $this.parent().toggleClass('open');
+
+        if (!e.data.multiple) {
+            $el.find('.accordion__info').not($next).slideUp().parent().removeClass('open');
+        }
+    };
+
+    var accordion = new Accordion($('.accordion'), false);
+});
