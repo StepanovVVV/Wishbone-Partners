@@ -5,17 +5,23 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wishbone+Partners</title>
+    
+    <link rel="stylesheet" href="assets/css/plugins/swiper-bundle.min.css">
     <link rel="stylesheet" href="assets/css/plugins/fancybox.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/font-awesome.min.css">
-    <link rel="stylesheet" href="assets/css/plugins/select2.min.css">
     <link rel="stylesheet" href="assets/css/style.min.css">
-    <link rel="shortcut icon" href="custom-favicon.ico" type="image/x-icon">
+
+    <link rel="shortcut icon" href="custom-favicon.ico" type="images/x-icon">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
+    <link rel="preload" as="style"
         href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
-        rel="stylesheet">
+        onload="this.onload=null;this.rel='stylesheet';">
+    <noscript>
+        <link rel="stylesheet"
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap">
+    </noscript>
+
 </head>
 
 <body class="hidden body-wrapper" id="content">
@@ -23,7 +29,7 @@
         <div class="header__container grid-container">
             <div class="header__logo">
                 <a href="index.html">
-                    <img src="assets/image/Wishbone.svg" alt="Wishbone+Partners">
+                    <img src="assets/images/Wishbone.svg" alt="Wishbone+Partners">
                 </a>
             </div>
             <div class="header__burger">
@@ -68,10 +74,15 @@
             </div>
             <div class="projects__container grid-container">
                 <div class="grid-x grid-padding-x">
-                    <div class="cell large-4 small-12">
+                    <div class="cell large-4 medium-6 small-12">
                         <div class="projects__wrap">
                             <div class="projects__img">
-                                <img src="assets/image/project-1.jpg" alt="Big Tower">
+                                <picture>
+                                    <source data-srcset="assets/images/webp/project-1.webp" type="image/webp">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-1.jpg" alt="Big Tower" decoding="async">
+                                </picture>
                             </div>
                             <div class="projects__info">
                                 <div class="projects__heading">
@@ -84,10 +95,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-4 small-12">
+                    <div class="cell large-4 medium-6 small-12">
                         <div class="projects__wrap">
                             <div class="projects__img">
-                                <img src="assets/image/project-2.jpg" alt="Big Road Brewery">
+                                <picture>
+                                    <source data-srcset="assets/images/webp/project-2.webp" type="image/webp">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-2.jpg" alt="Big Road Brewery" decoding="async">
+                                </picture>
                             </div>
                             <div class="projects__info">
                                 <div class="projects__heading">
@@ -100,10 +116,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-4 small-12">
+                    <div class="cell large-4 medium-6 small-12">
                         <div class="projects__wrap">
                             <div class="projects__img">
-                                <img src="assets/image/project-3.jpg" alt="BBig Build">
+                                <picture>
+                                    <source data-srcset="assets/images/webp/project-3.webp" type="image/webp">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-3.jpg" alt="Big Build" decoding="async">
+                                </picture>
                             </div>
                             <div class="projects__info">
                                 <div class="projects__heading">
@@ -116,10 +137,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-4 small-12">
+                    <div class="cell large-4 medium-6 small-12">
                         <div class="projects__wrap">
                             <div class="projects__img">
-                                <img src="assets/image/project-1.jpg" alt="Big Tower">
+                                <picture>
+                                    <source data-srcset="assets/images/webp/project-1.webp" type="image/webp">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-1.jpg" alt="Big Tower" decoding="async">
+                                </picture>
                             </div>
                             <div class="projects__info">
                                 <div class="projects__heading">
@@ -132,10 +158,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-4 small-12">
+                    <div class="cell large-4 medium-6 small-12">
                         <div class="projects__wrap">
                             <div class="projects__img">
-                                <img src="assets/image/project-2.jpg" alt="Big Road Brewery">
+                                <picture>
+                                    <source data-srcset="assets/images/webp/project-2.webp" type="image/webp">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-2.jpg" alt="Big Road Brewery" decoding="async">
+                                </picture>
                             </div>
                             <div class="projects__info">
                                 <div class="projects__heading">
@@ -148,10 +179,15 @@
                             </div>
                         </div>
                     </div>
-                    <div class="cell large-4 small-12">
+                    <div class="cell large-4 medium-6 small-12">
                         <div class="projects__wrap">
                             <div class="projects__img">
-                                <img src="assets/image/project-3.jpg" alt="BBig Build">
+                                <picture>
+                                    <source data-srcset="assets/images/webp/project-3.webp" type="image/webp">
+                                    <img class="lazyload"
+                                        src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                        data-src="assets/images/project-3.jpg" alt="Big Build" decoding="async">
+                                </picture>
                             </div>
                             <div class="projects__info">
                                 <div class="projects__heading">
@@ -201,7 +237,9 @@
                 <div class="cell">
                     <div class="footer__wrap">
                         <a href="#!" class="footer__logo">
-                            <img src="assets/image/Wishbone.svg" alt="Wishbone+Partners">
+                            <img class="lazyload"
+                                src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                data-src="assets/images/Wishbone.svg" alt="Wishbone+Partners">
                         </a>
                     </div>
                 </div>
@@ -222,19 +260,23 @@
                             <ul class="socials socials-position">
                                 <li class="socials__item">
                                     <a href="https://x.com/?lang=en" class="socials__link" target="_blank">
-                                        <img src="assets/image/social/twitter.svg" alt="Twitter" class="socials__icon">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/social/twitter.svg" alt="Twitter"
+                                            class="socials__icon lazyload">
                                     </a>
                                 </li>
                                 <li class="socials__item">
                                     <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                                        <img src="assets/image/social/instagram.svg" alt="Instagram"
-                                            class="socials__icon">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/social/instagram.svg" alt="Instagram"
+                                            class="socials__icon lazyload">
                                     </a>
                                 </li>
                                 <li class="socials__item">
                                     <a href="https://www.facebook.com/" class="socials__link" target="_blank">
-                                        <img src="assets/image/social/facebook.svg" alt="Facebook"
-                                            class="socials__icon">
+                                        <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                                            data-src="assets/images/social/facebook.svg" alt="Facebook"
+                                            class="socials__icon lazyload">
                                     </a>
                                 </li>
                             </ul>
@@ -258,8 +300,8 @@
                     <form action="/process_form.php" method="post" class="form">
                         <input type="text" id="name-2" name="name" placeholder="Name" required autocomplete="off"
                             class="form__input">
-                        <input type="tel" id="phone-2" name="phone" required placeholder="Phone Number"
-                            autocomplete="off" class="form__input phone">
+                        <input type="tel" id="phone" name="phone" required placeholder="Phone Number" autocomplete="off"
+                            class="form__input phone">
                         <div class="form__btn btn">
                             <button type="submit" class="btn__wrap"
                                 onclick="redirectToThankYouPage(event)">Subscribe</button>
@@ -273,46 +315,41 @@
     <!-- Scroll up btn -->
     <div class="scroll-up">
         <div class="scroll-up__icon">
-            <img src="assets/image/icons/arrow-up.svg" alt="Scroll up">
+            <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==" class="lazyload"
+                data-src="assets/images/icons/arrow-up.svg" alt="Scroll up">
         </div>
     </div>
 
     <!-- Phones -->
     <div class="phones">
         <div class="phones__icon">
-            <img src="assets/image/icons/phone.svg" alt="Phone">
-        </div>
-        <div class="phones__wrap">
-            <a href="tel:+32355512423" class="phones__link">+3(235)551-24-23</a>
-            <a href="tel:+34355512463" class="phones__link">+3(435)551-24-63</a>
+            <img src="assets/images/icons/liaison.svg" alt="liaison">
         </div>
         <ul class="socials phones__socials">
             <li class="socials__item">
                 <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                    <img src="assets/image/social/instagram.svg" alt="Instagram" class="socials__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        data-src="assets/images/social/twitter.svg" alt="Twitter" class="socials__icon lazyload">
                 </a>
             </li>
             <li class="socials__item">
                 <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                    <img src="assets/image/social/tiktok.svg" alt="tiktok" class="socials__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        data-src="assets/images/social/instagram.svg" alt="Instagram" class="socials__icon lazyload">
                 </a>
             </li>
             <li class="socials__item">
                 <a href="https://www.instagram.com/" class="socials__link" target="_blank">
-                    <img src="assets/image/social/facebook.svg" alt="Facebook" class="socials__icon">
+                    <img src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw=="
+                        data-src="assets/images/social/facebook.svg" alt="Facebook" class="socials__icon lazyload">
                 </a>
             </li>
         </ul>
     </div>
 
     <script src="assets/js/plugins/jquery-3.7.1.js"></script>
-    <script src="assets/js/plugins/fancybox.min.js"></script>
     <script src="assets/js/plugins/lazyload.min.js"></script>
-    <script src="assets/js/plugins/select2.min.js"></script>
-    <!-- <script src="assets/js/plugins/map.js"></script> -->
-    <script src="assets/js/plugins/phones-mask.js"></script>
-    <script src="assets/js/plugins/slick.min.js"></script>
-    <script src="assets/js/plugins/jarallax.min.js"></script>
+    <script src="assets/js/plugins/swiper-bundle.min.js"></script>
     <script src="assets/js/script.js"></script>
 
 </body>
