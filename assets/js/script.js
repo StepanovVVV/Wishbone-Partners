@@ -80,16 +80,28 @@ document.addEventListener('click', function (e) {
 });
 
 // Mask for phones
-document.addEventListener('focusin', function (e) {
-    if (e.target.matches('#phone')) {
-        if (!window.PhoneMaskInitialized) {
-            window.PhoneMaskInitialized = true;
+document.addEventListener('DOMContentLoaded', function () {
+    const phoneInputs = document.querySelectorAll('.phone');
+    if (phoneInputs.length === 0) return;
+
+    let maskLoaded = false;
+
+    function initPhoneMask() {
+        if (!maskLoaded) {
+            maskLoaded = true;
 
             loadScript('assets/js/plugins/phones-mask.js', function () {
-                $('#phone').mask("+55 (999) 999-99-99");
+                phoneInputs.forEach(input => {
+                    $(input).mask("+55 (999) 999-99-99");
+                });
             });
         }
+        phoneInputs.forEach(input => input.removeEventListener('mouseenter', initPhoneMask));
     }
+
+    phoneInputs.forEach(input => {
+        input.addEventListener('mouseenter', initPhoneMask);
+    });
 });
 
 // Parallax/jarallax effect
@@ -111,36 +123,6 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     }
 });
-
-
-// $(function () {
-//   // Fancybox init
-//   $('[data-fancybox]').fancybox({
-//     buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
-//     loop: true,
-//     protect: true
-//   });
-
-//   $('.popup__close').on('click', function () {
-//     $.fancybox.close();
-//   });
-
-//   // Phone mask
-//   $('#phone').mask("+55 (999) 999-99-99");
-// });
-
-
-// Parallax/jarallax effect
-// if (window.innerWidth > 1024) {
-//     requestAnimationFrame(() => {
-//         jarallax(document.querySelectorAll('.jarallax'), {
-//             speed: 0.5,
-//             imgSize: 'cover',
-//             imgPosition: 'center',
-//         });
-//     });
-// }
-
 
 // Home slider
 var swiper = new Swiper(".mySwiper", {
@@ -205,9 +187,6 @@ menuLinks.forEach(link => {
         }
     });
 });
-
-
-
 
 // Tabs
 // $(function () {
