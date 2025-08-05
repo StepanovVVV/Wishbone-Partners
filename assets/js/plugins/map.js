@@ -1,26 +1,18 @@
 var mapData = {
     api_key: "AIzaSyBUyLIEuwNqSZ4HiON27_-XD8wDM5KZXfo",
-    markers: [{
-            position: {
-                lat: 40.746921,
-                lng: -73.779062
-            },
+    markers: [
+        {
+            position: { lat: 40.746921, lng: -73.779062 },
             title: "My company",
             address: "Queens, New York, USA"
         },
         {
-            position: {
-                lat: 41.551197,
-                lng: -72.665644
-            },
+            position: { lat: 41.551197, lng: -72.665644 },
             title: "Middletown branch",
             address: "281-245 Cross St Middletown, CT 06457, USA"
         },
         {
-            position: {
-                lat: 41.328263,
-                lng: -72.955918
-            },
+            position: { lat: 41.328263, lng: -72.955918 },
             title: "Connecticut branch",
             address: "New Haven, Connecticut, USA"
         }
@@ -29,7 +21,7 @@ var mapData = {
 
 function loadGoogleMapsScript(callback) {
     if (window.google && window.google.maps) {
-        callback();
+        window[callback]();
         return;
     }
     var script = document.createElement('script');
@@ -42,38 +34,13 @@ function loadGoogleMapsScript(callback) {
 function initMap() {
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 17,
-        center: {
-            lat: 50.4501,
-            lng: 30.5234
-        },
+        center: { lat: 50.4501, lng: 30.5234 },
         mapTypeId: 'roadmap',
         styles: [
-            // Roads
-            {
-                featureType: "road",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#000000"
-                }]
-            },
-            // Water
-            {
-                featureType: "water",
-                elementType: "geometry",
-                stylers: [{
-                    color: "#aadaff"
-                }]
-            },
-            // Street caption color
-            {
-                featureType: "road",
-                elementType: "labels.text.fill",
-                stylers: [{
-                    color: "#ffffffff"
-                }]
-            }
+            { featureType: "road", elementType: "geometry", stylers: [{ color: "#000000" }] },
+            { featureType: "water", elementType: "geometry", stylers: [{ color: "#aadaff" }] },
+            { featureType: "road", elementType: "labels.text.fill", stylers: [{ color: "#ffffff" }] }
         ]
-
     });
 
     var bounds = new google.maps.LatLngBounds();
@@ -103,6 +70,26 @@ function initMap() {
     });
 
     map.fitBounds(bounds);
+
+    // Показываем карту и скрываем заглушку
+    document.getElementById('map').style.display = 'block';
+    const placeholder = document.querySelector('.map-placeholder');
+    if (placeholder) placeholder.style.display = 'none';
 }
 
-loadGoogleMapsScript('initMap');
+// Подгружаем карту только при появлении в зоне видимости
+document.addEventListener('DOMContentLoaded', function () {
+    const mapWrapper = document.querySelector('.map-wrapper');
+    if (!mapWrapper) return;
+
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                loadGoogleMapsScript('initMap');
+                observer.disconnect(); // отключаем после первого запуска
+            }
+        });
+    });
+
+    observer.observe(mapWrapper);
+});
