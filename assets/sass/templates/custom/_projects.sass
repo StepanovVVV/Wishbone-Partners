@@ -1,0 +1,112 @@
+.projects
+    padding: rem-calc(114 0 108)
+    background-color: $color-7
+    &-page
+        padding: rem-calc(20 0 60)
+    &.news-page
+        .projects__wrap
+            height: rem-calc(200)
+            @include respond(medium)
+                height: 100%
+        .projects__info
+            padding: rem-calc(20)
+            background-color: $color-9
+            @include respond(medium)
+                background-color: transparent
+                position: static
+                padding: rem-calc(20 0)
+                opacity: 1
+                visibility: visible
+                height: auto
+        .projects__img
+            @include respond(medium)
+                height: rem-calc(300)
+        .projects__heading
+            >h3
+                font-size: rem-calc(16)
+                @include respond(medium)
+                    font-weight: 500
+        .projects__btn
+            .btn__wrap
+                font-size: rem-calc(12)
+    &__title
+        max-width: rem-calc(620)
+        width: 100%
+        >h2,
+        >h1
+            font-size: rem-calc(39)
+            font-weight: 400
+            line-height: 1.07692307692
+            color: $color-2
+        >p
+            font-size: rem-calc(24)
+            font-weight: 400
+            line-height: 1.25
+            color: $color-4
+            margin-top: rem-calc(14)
+    &__container
+        margin-top: rem-calc(44)
+        .grid-x 
+            row-gap: rem-calc(32)
+    &__wrap
+        position: relative
+        overflow: hidden
+        cursor: pointer
+        @include respond(small)
+            height: rem-calc(400)
+        &:hover .projects__info
+            opacity: 1
+            visibility: visible
+        &:hover .projects__img
+            transform: scale(1.1)
+    &__img
+        transition: all .3s ease 0s
+        height: 100%
+        img
+            height: 100%
+    &__info
+        display: flex
+        flex-direction: column
+        justify-content: space-between
+        gap: rem-calc(15)
+        position: absolute
+        width: 100%
+        height: 100%
+        top: 0
+        left: 0
+        padding: rem-calc(40)
+        transition: all .3s ease 0s
+        opacity: 0
+        visibility: hidden
+        @include respond(small)
+            opacity: 1
+            visibility: visible
+            padding: rem-calc(40 20)
+    &__heading
+        >h3
+            font-size: rem-calc(14)
+            font-weight: 400
+            line-height: 1.42857142857
+            color: $color-4 
+            letter-spacing: rem-calc(2)
+            text-transform: uppercase
+        >h4
+            font-size: rem-calc(23)
+            font-weight: 400
+            line-height: 1.30434782609
+            color: $color-5
+    &__btn-all
+        margin-top: rem-calc(8)
+        text-align: center
+        &-wrap
+            font-size: rem-calc(16)
+            font-weight: 400
+            line-height: 1.5
+            color: $color-2
+            letter-spacing: rem-calc(.4)
+            background-color: transparent
+            &:active,
+            &:focus,
+            &:hover
+                background-color: $color-2
+                color: $color-1

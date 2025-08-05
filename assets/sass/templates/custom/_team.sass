@@ -1,0 +1,63 @@
+.team
+    padding: rem-calc(96 0 128)
+    &-page
+        padding: rem-calc(60 0 80)
+        .team__wrap
+            margin: 0 auto
+            grid-template-columns: 1fr 1fr 1fr
+            @include respond(medium)
+                grid-template-columns: 1fr 1fr
+            @include respond(small)
+                grid-template-columns: 100%
+        .team__avatar
+            flex-direction: column
+            gap: rem-calc(15)
+            margin: 0 auto
+            @include respond(medium)
+                max-width: 100%
+            &-wrap
+                justify-content: space-between
+            .avatar__img
+                max-width: rem-calc(280)
+                width: 100%
+                height: rem-calc(380)
+                border-radius: unset
+                @include respond(medium)
+                    height: rem-calc(500)
+                    max-width: 100%
+                @include respond(small)
+                    height: auto
+                img
+                    height: 100%
+                    object-position: top
+            .avatar__info
+                text-align: center
+            .avatar__text
+                font-size: rem-calc(14)
+                font-weight: 400
+                line-height: 1.42857142857
+                color: $color-4
+                text-align: center
+    .grid-x
+        row-gap: rem-calc(40)
+    &__wrap
+        display: grid
+        grid-template-columns: 1fr 1fr
+        grid-gap: rem-calc(52 20)
+        margin-top: rem-calc(12)
+        @include respond(medium)
+            justify-items: center
+        @include respond(small)
+            grid-template-columns: auto
+            grid-gap: rem-calc(30 20)
+    &__avatar
+        max-width: rem-calc(280)
+        width: 100%
+    &__info
+        >h3
+            color: $color-5
+        >p
+            color: $color-4
+    &__btn
+        margin-top: rem-calc(30)
+        margin-left: rem-calc(6)
