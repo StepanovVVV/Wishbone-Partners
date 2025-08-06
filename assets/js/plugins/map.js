@@ -1,4 +1,4 @@
-// ✅ Ключ API Google Maps (только в одном месте)
+// ✅ Ключ API в одном месте
 const GOOGLE_MAPS_API_KEY = "AIzaSyBUyLIEuwNqSZ4HiON27_-XD8wDM5KZXfo";
 
 // ✅ Данные карты
@@ -41,12 +41,12 @@ function initMap() {
   const mapElement = document.getElementById('map');
   if (!mapElement) return;
 
-  mapElement.style.display = 'block'; // показать карту
-  document.querySelector('.map__placeholder')?.remove(); // удалить заглушку
+  mapElement.style.display = 'block';
+  document.querySelector('.map__placeholder')?.remove();
 
   const map = new google.maps.Map(mapElement, {
     zoom: 17,
-    center: { lat: 50.4501, lng: 30.5234 }, // центр по умолчанию
+    center: { lat: 50.4501, lng: 30.5234 },
     mapTypeId: 'roadmap',
     styles: [
       { featureType: "road", elementType: "geometry", stylers: [{ color: "#000000" }] },
@@ -84,22 +84,35 @@ function initMap() {
   map.fitBounds(bounds);
 }
 
-// ✅ Загрузка карты при взаимодействии
+// ✅ Двойная защита: и загрузка страницы, и взаимодействие
+let mapShouldLoad = false;
+let pageIsLoaded = false;
 let mapLoaded = false;
 
-function initMapOnUserInteraction() {
-  if (mapLoaded) return;
+function tryLoadMap() {
+  if (mapLoaded || !mapShouldLoad || !pageIsLoaded) return;
+
   mapLoaded = true;
-
   loadGoogleMapsScript('initMap');
-
-  // Удалить слушатели после первого срабатывания
-  window.removeEventListener('scroll', initMapOnUserInteraction);
-  window.removeEventListener('mousemove', initMapOnUserInteraction);
-  window.removeEventListener('touchstart', initMapOnUserInteraction);
 }
 
-// ✅ Добавить слушатели для "ленивой" загрузки
-window.addEventListener('scroll', initMapOnUserInteraction, { once: true });
-window.addEventListener('mousemove', initMapOnUserInteraction, { once: true });
-window.addEventListener('touchstart', initMapOnUserInteraction, { once: true });
+// Отметить, что пользователь начал взаимодействие
+function onUserInteraction() {
+  mapShouldLoad = true;
+  tryLoadMap();
+
+  window.removeEventListener('scroll', onUserInteraction);
+  window.removeEventListener('mousemove', onUserInteraction);
+  window.removeEventListener('touchstart', onUserInteraction);
+}
+
+// Отметить, что страница загружена
+window.addEventListener('load', () => {
+  pageIsLoaded = true;
+  tryLoadMap();
+});
+
+// Слушатели взаимодействий
+window.addEventListener('scroll', onUserInteraction, { once: true });
+window.addEventListener('mousemove', onUserInteraction, { once: true });
+window.addEventListener('touchstart', onUserInteraction, { once: true });
