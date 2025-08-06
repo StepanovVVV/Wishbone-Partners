@@ -90,7 +90,7 @@ let pageIsLoaded = false;
 let mapLoaded = false;
 
 function tryLoadMap() {
-  if (mapLoaded || !mapShouldLoad || !pageIsLoaded) return;
+if (mapLoaded || !pageIsLoaded) return;
 
   mapLoaded = true;
   loadGoogleMapsScript('initMap');
