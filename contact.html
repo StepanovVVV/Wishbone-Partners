@@ -81,11 +81,10 @@
                 <div class="grid-x grid-padding-x">
                     <div class="cell small-12 large-7">
                         <div class="contact__map">
-                            <div class="map-wrapper" style="position: relative; width: 100%; height: 500px;">
-                                <div id="map" class="map" style="width: 100%; height: 100%; display: none;"></div>
-                                <img src="assets/images/map-bg.svg" class="map-placeholder lazyload"
-                                    alt="Map background" decoding="async" fetchpriority="high" loading="eager"
-                                    style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover;">
+                            <div class="map">
+                                <div id="map" class="map__block" style="display: none;"></div>
+                                <img src="assets/images/map-bg.svg" class="map__placeholder lazyload"
+                                    alt="Map background" decoding="async" fetchpriority="high" loading="eager">
                             </div>
                         </div>
                     </div>
@@ -297,4 +296,3 @@
 </body>
 
 </html>
-
