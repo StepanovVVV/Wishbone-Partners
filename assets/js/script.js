@@ -111,7 +111,7 @@ window.addEventListener('load', () => {
     script.src = 'assets/js/plugins/map.js';
     script.defer = true;
     document.body.appendChild(script);
-  }, 1000); // задержка 3 секунды
+  }, 2000);
 });
 
 
@@ -383,3 +383,4 @@ if (typeof jQuery !== 'undefined') {
         var accordion = new Accordion($('.accordion'), false);
     });
 }
+
