@@ -6,6 +6,7 @@
     &.news-page
         .projects__wrap
             height: rem-calc(200)
+            pointer-events: none
             @include respond(medium)
                 height: 100%
         .projects__info
@@ -17,6 +18,7 @@
                 padding: rem-calc(20 0)
                 opacity: 1
                 visibility: visible
+            @include respond(small)
                 height: auto
         .projects__img
             @include respond(medium)
@@ -49,6 +51,9 @@
         .grid-x 
             row-gap: rem-calc(32)
     &__wrap
+        display: flex
+        flex-direction: column
+        justify-content: space-between
         position: relative
         overflow: hidden
         cursor: pointer
