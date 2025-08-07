@@ -111,7 +111,7 @@ window.addEventListener('load', () => {
     script.src = 'assets/js/plugins/map.js';
     script.defer = true;
     document.body.appendChild(script);
-  }, 2000);
+  }, 2500);
 });
 
 
@@ -383,4 +383,5 @@ if (typeof jQuery !== 'undefined') {
         var accordion = new Accordion($('.accordion'), false);
     });
 }
+
 
