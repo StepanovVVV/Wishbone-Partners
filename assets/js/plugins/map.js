@@ -1,7 +1,5 @@
-// ✅ Ключ API в одном месте
 const GOOGLE_MAPS_API_KEY = "AIzaSyBUyLIEuwNqSZ4HiON27_-XD8wDM5KZXfo";
 
-// ✅ Данные карты
 const mapData = {
   markers: [
     {
@@ -22,32 +20,19 @@ const mapData = {
   ]
 };
 
-// ✅ Загрузка Google Maps API
-function loadGoogleMapsScript(callback) {
-  if (window.google && window.google.maps) {
-    callback();
-    return;
-  }
+// Обязательно сделать initMap глобальной
+window.initMap = function () {
+  const mapEl = document.getElementById("map");
+  if (!mapEl) return;
 
-  const script = document.createElement('script');
-  script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=${callback}`;
-  script.async = true;
-  script.defer = true;
-  document.head.appendChild(script);
-}
+  mapEl.style.display = "block";
+  const placeholder = document.querySelector(".map__placeholder");
+  if (placeholder) placeholder.remove();
 
-// ✅ Инициализация карты
-function initMap() {
-  const mapElement = document.getElementById('map');
-  if (!mapElement) return;
-
-  mapElement.style.display = 'block';
-  document.querySelector('.map__placeholder')?.remove();
-
-  const map = new google.maps.Map(mapElement, {
+  const map = new google.maps.Map(mapEl, {
     zoom: 17,
     center: { lat: 50.4501, lng: 30.5234 },
-    mapTypeId: 'roadmap',
+    mapTypeId: "roadmap",
     styles: [
       { featureType: "road", elementType: "geometry", stylers: [{ color: "#000000" }] },
       { featureType: "water", elementType: "geometry", stylers: [{ color: "#aadaff" }] },
@@ -60,7 +45,7 @@ function initMap() {
 
   mapData.markers.forEach(markerData => {
     const marker = new google.maps.Marker({
-      map: map,
+      map,
       position: markerData.position,
       title: markerData.title,
       icon: {
@@ -73,7 +58,7 @@ function initMap() {
       }
     });
 
-    marker.addListener('click', () => {
+    marker.addListener("click", () => {
       infoWindow.setContent(`<div><strong>${markerData.title}</strong><br>${markerData.address}</div>`);
       infoWindow.open(map, marker);
     });
@@ -82,37 +67,18 @@ function initMap() {
   });
 
   map.fitBounds(bounds);
-}
+};
 
-// ✅ Двойная защита: и загрузка страницы, и взаимодействие
-let mapShouldLoad = false;
-let pageIsLoaded = false;
-let mapLoaded = false;
+// Подгружаем Google Maps API с callback=initMap
+(function loadGoogleMapsScript() {
+  if (window.google && window.google.maps) {
+    window.initMap();
+    return;
+  }
 
-function tryLoadMap() {
-  if (mapLoaded || !mapShouldLoad || !pageIsLoaded) return;
-
-  mapLoaded = true;
-  loadGoogleMapsScript('initMap');
-}
-
-// Отметить, что пользователь начал взаимодействие
-function onUserInteraction() {
-  mapShouldLoad = true;
-  tryLoadMap();
-
-  window.removeEventListener('scroll', onUserInteraction);
-  window.removeEventListener('mousemove', onUserInteraction);
-  window.removeEventListener('touchstart', onUserInteraction);
-}
-
-// Отметить, что страница загружена
-window.addEventListener('load', () => {
-  pageIsLoaded = true;
-  tryLoadMap();
-});
-
-// Слушатели взаимодействий
-window.addEventListener('scroll', onUserInteraction, { once: true });
-window.addEventListener('mousemove', onUserInteraction, { once: true });
-window.addEventListener('touchstart', onUserInteraction, { once: true });
+  const script = document.createElement("script");
+  script.src = `https://maps.googleapis.com/maps/api/js?key=${GOOGLE_MAPS_API_KEY}&callback=initMap`;
+  script.async = true;
+  script.defer = true;
+  document.head.appendChild(script);
+})();
