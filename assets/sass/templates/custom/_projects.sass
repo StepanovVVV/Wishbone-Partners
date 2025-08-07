@@ -6,9 +6,10 @@
     &.news-page
         .projects__wrap
             height: rem-calc(200)
-            pointer-events: none
             @include respond(medium)
                 height: 100%
+            &:hover .projects__img
+                transform: scale(1)
         .projects__info
             padding: rem-calc(20)
             background-color: $color-9
