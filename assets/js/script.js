@@ -56,7 +56,7 @@ function loadScript(url, callback) {
     document.body.appendChild(script);
 }
 
-// Add script file for Fancybox
+// Fancybox
 document.addEventListener('click', function (e) {
     const fancyTrigger = e.target.closest('[data-fancybox]');
     if (fancyTrigger) {
@@ -79,7 +79,7 @@ document.addEventListener('click', function (e) {
     }
 });
 
-// Add script file for mask for phones
+// Mask for phones
 document.addEventListener('DOMContentLoaded', function () {
     const phoneInputs = document.querySelectorAll('.phone');
     if (phoneInputs.length === 0) return;
@@ -104,17 +104,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-// Add script file for google map
-window.addEventListener('load', () => {
-  setTimeout(() => {
-    const script = document.createElement('script');
-    script.src = 'assets/js/plugins/map.js';
-    script.defer = true;
-    document.body.appendChild(script);
-  }, 2500);
-});
-
-
 // Parallax/jarallax effect
 function loadScript(url, callback) {
     const script = document.createElement('script');
@@ -125,7 +114,7 @@ function loadScript(url, callback) {
 
 function initJarallax() {
     if (window.JarallaxInitialized) return;
-    if (window.innerWidth <= 1024) return;
+    if (window.innerWidth <= 1024) return; // не грузим на мобильных
 
     window.JarallaxInitialized = true;
     loadScript('assets/js/plugins/jarallax.min.js', () => {
@@ -383,5 +372,3 @@ if (typeof jQuery !== 'undefined') {
         var accordion = new Accordion($('.accordion'), false);
     });
 }
-
-
