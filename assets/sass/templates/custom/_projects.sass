@@ -9,7 +9,8 @@
             @include respond(medium)
                 height: 100%
             &:hover .projects__img
-                transform: scale(1)
+                @include respond(medium)
+                    transform: scale(1)
         .projects__info
             padding: rem-calc(20)
             background-color: $color-9
@@ -84,7 +85,7 @@
         transition: all .3s ease 0s
         opacity: 0
         visibility: hidden
-        @include respond(small)
+        @include respond(medium)
             opacity: 1
             visibility: visible
             padding: rem-calc(40 20)
