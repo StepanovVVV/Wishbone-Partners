@@ -59,25 +59,71 @@ function loadScript(url, callback) {
 // Fancybox
 document.addEventListener('click', function (e) {
     const fancyTrigger = e.target.closest('[data-fancybox]');
-    if (fancyTrigger) {
-        if (!window.FancyboxInitialized) {
-            window.FancyboxInitialized = true;
+    if (!fancyTrigger) return;
 
-            loadScript('assets/js/plugins/fancybox.min.js', function () {
-                $('[data-fancybox]').fancybox({
-                    buttons: ["zoom", "slideShow", "fullScreen", "thumbs", "close"],
-                    loop: true,
-                    protect: true
-                });
+    e.preventDefault(); // предотвращаем стандартное действие
 
-                $('.popup__close').on('click', function () {
-                    $.fancybox.close();
-                });
-                fancyTrigger.click();
+    if (!window.FancyboxInitialized) {
+        window.FancyboxInitialized = true;
+
+        // Запоминаем, что хотели открыть
+        window._fancyFirstTrigger = fancyTrigger;
+
+        // Подгружаем только JS
+        loadScript('assets/js/plugins/fancybox.min.js', function () {
+            $("[data-fancybox]").fancybox({
+                toolbar: false,
+                smallBtn: false,
+                buttons: ["close"],
+                loop: false,
+                clickSlide: false,
+                clickOutside: false,
+                backFocus: false
             });
-        }
+
+            // Открываем первый кликнутый элемент
+            if (window._fancyFirstTrigger) {
+                $(window._fancyFirstTrigger).trigger('click');
+                window._fancyFirstTrigger = null;
+            }
+        });
+    } else {
+        // Fancybox уже загружен — открываем сразу
+        $(fancyTrigger).trigger('click');
     }
 });
+
+// Глобальный обработчик для креста и Esc
+(function(){
+    let lastTap = 0;
+
+    document.addEventListener('click', function(e){
+        const btn = e.target.closest('.popup__close');
+        if (!btn) return;
+
+        const now = Date.now();
+        if (now - lastTap < 400) return;
+        lastTap = now;
+
+        e.preventDefault();
+        if (window.jQuery && $.fancybox && $.fancybox.getInstance()) {
+            $.fancybox.close();
+        } else {
+            document.getElementById('popup').style.display = 'none';
+        }
+    });
+
+    document.addEventListener('keydown', function(e){
+        if (e.key === 'Escape' || e.keyCode === 27) {
+            if (window.jQuery && $.fancybox && $.fancybox.getInstance()) {
+                $.fancybox.close();
+            } else {
+                document.getElementById('popup').style.display = 'none';
+            }
+        }
+    });
+})();
+
 
 // Mask for phones
 document.addEventListener('DOMContentLoaded', function () {
