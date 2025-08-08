@@ -404,14 +404,16 @@
     </footer>
 
     <!-- Pop-up -->
-    <div id="popup" class="popup" style="display:none;">
+    <div id="popup" class="popup">
         <div class="popup__container">
             <div class="popup__wrapper">
-                <span class="popup__close">×</span>
+                <span class="popup__close" role="button" tabindex="0">×</span>
+
                 <div class="popup__content">
                     <h3 class="popup__title">Contact us now</h3>
                     <p class="popup__info">Our manager will contact you as soon as possible.</p>
                 </div>
+
                 <div class="popup__form">
                     <form action="/process_form.php" method="post" class="form">
                         <input type="text" id="name-2" name="name" placeholder="Name" required autocomplete="off"
