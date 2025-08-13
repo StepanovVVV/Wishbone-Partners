@@ -1,0 +1,22 @@
+.common-section
+    padding: rem-calc(40 0)
+    background-color: $color-3
+    @include respond(small)
+        padding: rem-calc(30 0)
+    &__wrap
+        text-transform: uppercase
+        text-align: center
+        >h1
+            font-size: rem-calc(14)
+            font-weight: 400
+            line-height: 1.42857142857
+            letter-spacing: rem-calc(2)
+            color: $color-4
+        >h2
+            font-size: rem-calc(44)
+            font-weight: 400
+            line-height: 1.42857142857
+            letter-spacing: rem-calc(2)
+            color: $color-2
+            @include respond(small)
+                font-size: rem-calc(34)

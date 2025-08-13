@@ -1,0 +1,26 @@
+.section-tabs
+    padding: rem-calc(80 0 80)
+    // background-color: $color-3
+    &__container
+        max-width: rem-calc(790)
+    &__title
+        font-size: rem-calc(28)
+        font-weight: 400
+        line-height: 1.07692307692
+        color: $color-2
+        margin-bottom: rem-calc(30)
+    &__btns
+        flex-direction: row
+    &__btn
+        flex: 0 1 auto
+        &.active
+            .btn__wrap
+                background-color: $color-4
+    &__info
+        font-size: rem-calc(16)
+        font-weight: 400
+        line-height: 1.5
+        color: $color-5
+        border: rem-calc(2) solid $color-5
+        border-radius: rem-calc(14)
+        padding: rem-calc(20)
