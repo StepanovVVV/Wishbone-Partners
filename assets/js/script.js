@@ -194,6 +194,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
+// Slider
+var swiper = new Swiper(".slider__swiper", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    loop: true,
+    autoplay: {
+        delay: 3000,
+        disableOnInteraction: false
+    },
+    coverflowEffect: {
+        rotate: 50,
+        stretch: 0,
+        depth: 100,
+        modifier: 1,
+        slideShadows: true,
+    }
+});
+
 // Add class for header scroll
 document.addEventListener('DOMContentLoaded', function () {
     const header = document.querySelector('.header');
@@ -393,7 +413,7 @@ if (typeof jQuery !== 'undefined') {
         // Tabs
         $(function () {
             $("div.tabs__btns").on("click", "div.tabs__btn:not(.active)", function () {
-                let $tabs = $(this).closest("div.tabs");
+                let $tabs = $(this).closest(".tabs");
                 let index = $(this).index();
 
                 $(this).addClass("active").siblings().removeClass("active");
@@ -408,22 +428,3 @@ if (typeof jQuery !== 'undefined') {
         });
     });
 }
-
-var swiper = new Swiper(".slider__swiper", {
-  effect: "coverflow",
-  grabCursor: true,
-  centeredSlides: true,
-  slidesPerView: "auto",
-  loop: true, // бесконечная прокрутка
-  autoplay: {
-    delay: 3000, // время между перелистыванием (в мс)
-    disableOnInteraction: false // продолжать листать после взаимодействия
-  },
-  coverflowEffect: {
-    rotate: 50,
-    stretch: 0,
-    depth: 100,
-    modifier: 1,
-    slideShadows: true,
-  }
-});
