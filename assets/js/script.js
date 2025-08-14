@@ -195,23 +195,57 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 // Slider
-var swiper = new Swiper(".slider__swiper", {
-    effect: "coverflow",
-    grabCursor: true,
-    centeredSlides: true,
-    slidesPerView: 3,
-    loop: true,
-    autoplay: {
-        delay: 3000,
-        disableOnInteraction: false
-    },
-    coverflowEffect: {
-        rotate: 50,
-        stretch: 0,
-        depth: 100,
-        modifier: 1,
-        slideShadows: true,
+document.addEventListener('DOMContentLoaded', function () {
+    if (typeof Swiper === 'undefined' || !document.querySelector('.slider__swiper')) return;
+
+    let swiperInstance;
+
+    function initSwiper() {
+        const isMobile = window.innerWidth <= 640;
+
+        if (swiperInstance) {
+            swiperInstance.destroy(true, true);
+        }
+
+        const swiperSettings = isMobile ?
+            {
+                slidesPerView: 1,
+                grabCursor: true,
+                centeredSlides: true,
+                loop: false,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                effect: "slide"
+            } :
+            {
+                effect: "coverflow",
+                grabCursor: true,
+                centeredSlides: true,
+                slidesPerView: 3,
+                loop: true,
+                autoplay: {
+                    delay: 3000,
+                    disableOnInteraction: false
+                },
+                coverflowEffect: {
+                    rotate: 50,
+                    stretch: 0,
+                    depth: 100,
+                    modifier: 1,
+                    slideShadows: true
+                }
+            };
+
+        swiperInstance = new Swiper(".slider__swiper", swiperSettings);
     }
+
+    initSwiper();
+
+    window.addEventListener('resize', function () {
+        initSwiper();
+    });
 });
 
 // Add class for header scroll
@@ -427,5 +461,4 @@ if (typeof jQuery !== 'undefined') {
             $(".tabs__item").not(".active").hide();
         });
     });
-
 }
