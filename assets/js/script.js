@@ -199,7 +199,7 @@ var swiper = new Swiper(".slider__swiper", {
     effect: "coverflow",
     grabCursor: true,
     centeredSlides: true,
-    slidesPerView: "auto",
+    slidesPerView: 3,
     loop: true,
     autoplay: {
         delay: 3000,
@@ -427,4 +427,5 @@ if (typeof jQuery !== 'undefined') {
             $(".tabs__item").not(".active").hide();
         });
     });
+
 }
