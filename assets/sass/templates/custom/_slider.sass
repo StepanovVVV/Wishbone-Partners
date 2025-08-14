@@ -7,13 +7,15 @@
         line-height: 1.07692307692
         color: $color-2
     &__container
-        max-width: rem-calc(790)
+        max-width: rem-calc(800)
     &__swiper
         padding: rem-calc(40 0 20)
         background-color: transparent
     &__slide
-        max-width: rem-calc(275)
+        max-width: rem-calc(265)
         height: rem-calc(275)
         width: 100%
         overflow: hidden
         background-color: transparent
+        @include respond(medium)
+            height: auto
