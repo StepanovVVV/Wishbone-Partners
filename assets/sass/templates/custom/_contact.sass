@@ -1,0 +1,37 @@
+.contact
+    padding: rem-calc(80 0)
+    @include respond(small)
+        padding: rem-calc(40 0 60)
+    .grid-x
+        @include respond(small)
+            row-gap: rem-calc(40)
+            flex-direction: column-reverse
+    &__map
+        height: rem-calc(400)
+    &__info
+        text-align: right
+        @include respond(small)
+            text-align: center
+    &__phone
+        margin-top: rem-calc(20)
+    &__address,
+    &__phone
+        >h3
+            font-size: rem-calc(16)
+            font-weight: 700
+            line-height: 1.42857142857
+            letter-spacing: rem-calc(2)
+            color: $color-4
+            margin-bottom: rem-calc(20)
+        >ul
+            >li+li
+                margin-top: rem-calc(10)
+            >li a
+                display: inline-block
+                transition: all .3s ease 0s
+                &:hover,
+                &:active,
+                &:focus
+                    opacity: .5
+    &__socials
+        margin-top: rem-calc(20)
