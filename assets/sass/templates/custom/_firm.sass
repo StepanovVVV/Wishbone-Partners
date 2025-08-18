@@ -1,0 +1,33 @@
+.firm
+    padding: rem-calc(100 0 128)
+    &-about-page
+        padding: rem-calc(60 0 60)
+    &-new
+        padding: rem-calc(50 0 20)
+        &-flex
+            .grid-x
+                div.cell:last-child
+                    @include respond(small)
+                        order: -1
+    &__container
+        max-width: rem-calc(790)
+    &__cell
+        >h3
+            font-size: rem-calc(32)
+            font-weight: 400
+            line-height: 1.1875
+            color: $color-5
+    &__img
+        border-radius: 50%
+        overflow: hidden
+        max-width: rem-calc(84)
+    &__info
+        >p+p
+            margin-top: rem-calc(10)
+        >p
+            font-size: rem-calc(16)
+            font-weight: 400
+            line-height: 1.5
+            color: $color-5
+    &__avatar
+        margin-top: rem-calc(18)
