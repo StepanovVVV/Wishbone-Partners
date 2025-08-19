@@ -376,7 +376,7 @@ document.addEventListener('DOMContentLoaded', function () {
 function redirectToThankYouPage(event) {
     event.preventDefault();
 
-    window.location.href = '/thank-you.html'; // onclick="redirectToThankYouPage(event)"
+    window.location.href = '/Wishbone-Partners/thank-you.html'; // onclick="redirectToThankYouPage(event)"
 }
 
 // Load projects
@@ -479,4 +479,5 @@ if (typeof jQuery !== 'undefined') {
             $(".tabs__item").not(".active").hide();
         });
     });
+
 }
