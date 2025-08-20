@@ -1,7 +1,7 @@
-// ✅ Ключ API в одном месте
+// API key in one place
 const GOOGLE_MAPS_API_KEY = "AIzaSyBUyLIEuwNqSZ4HiON27_-XD8wDM5KZXfo";
 
-// ✅ Данные карты
+// Data cards
 const mapData = {
   markers: [
     {
@@ -22,7 +22,7 @@ const mapData = {
   ]
 };
 
-// ✅ Загрузка Google Maps API
+// Loading Google Maps API
 function loadGoogleMapsScript(callback) {
   if (window.google && window.google.maps) {
     callback();
@@ -36,7 +36,7 @@ function loadGoogleMapsScript(callback) {
   document.head.appendChild(script);
 }
 
-// ✅ Инициализация карты
+// Card initialization
 function initMap() {
   const mapElement = document.getElementById('map');
   if (!mapElement) return;
@@ -84,7 +84,7 @@ function initMap() {
   map.fitBounds(bounds);
 }
 
-// ✅ Двойная защита: и загрузка страницы, и взаимодействие
+// Double protection: both page loading and interaction
 let mapShouldLoad = false;
 let pageIsLoaded = false;
 let mapLoaded = false;
@@ -96,7 +96,7 @@ function tryLoadMap() {
   loadGoogleMapsScript('initMap');
 }
 
-// Отметить, что пользователь начал взаимодействие
+// Note that the user has started interacting
 function onUserInteraction() {
   mapShouldLoad = true;
   tryLoadMap();
@@ -106,13 +106,14 @@ function onUserInteraction() {
   window.removeEventListener('touchstart', onUserInteraction);
 }
 
-// Отметить, что страница загружена
+// Note that the page has been loaded
 window.addEventListener('load', () => {
   pageIsLoaded = true;
   tryLoadMap();
 });
 
-// Слушатели взаимодействий
+// Interaction listeners
 window.addEventListener('scroll', onUserInteraction, { once: true });
 window.addEventListener('mousemove', onUserInteraction, { once: true });
 window.addEventListener('touchstart', onUserInteraction, { once: true });
+
